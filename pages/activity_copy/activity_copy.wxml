@@ -1,0 +1,114 @@
+<!--pages/activity_copy/activity_copy.wxml-->
+<view class="top_image">
+    <view class='carousel'> 
+    <swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="false" interval='2000' circular='true'>
+      <block wx:for="{{carouselList}}" wx:key="key">
+        <swiper-item bindtap='chomeCarouselClick' data-url='{{item.url}}'>
+          <!-- <image class="carouselImg" src='{{host}}{{item.img}}' mode='aspectFill' ></image> -->
+          <image class="carouselImg" src='{{item}}' mode='aspectFill' ></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<view class="base_tab">
+    <view class='detailView1'>
+      <image src='/pages/imgs/ac01.png' class="p1"></image>
+      <text class="z1">
+        <text>造型 \n</text>
+        <text class="wz">1套</text>
+      </text>
+     
+    </view>
+    <view class='detailView'>
+      <image src='/pages/imgs/ac02.png' class="p1"></image>
+      <text class="z1">
+        <text>拍摄 \n</text>
+        <text class="wz">1张</text>
+      </text>
+    </view>
+    <view class='detailView'>
+      <image src='/pages/imgs/ac03.png' class="p1"></image>
+     <text class="z1">
+        <text>精修 \n</text>
+        <text class="wz">1张</text>
+      </text>
+    </view>
+    <view class='detailView'>
+      <image src='/pages/imgs/ac04.png' class="p1"></image>
+       <text class="z1">
+        <text>团队 \n</text>
+        <text class="wz">资源</text>
+      </text>
+    </view>              
+</view>
+<view class="title_info">
+    <view class="lable">
+        <text class="la"> {{label}}</text>
+        <text class="title">{{title}}</text>
+        <text class="address">{{title_address}}</text>
+    </view>
+    <view class="money">
+      <text class="money1">￥1000</text>
+      <text class="money2">￥1000</text>
+    </view>
+    <view class="introd_info">
+      <block wx:for="{{introd_info}}" wx:key="key">
+        <text class="intro">· {{item}} \n</text>
+      </block>
+    </view>
+</view>
+
+<view class="fg"></view>
+
+<view class="baoming">
+  <view class="bm_info">
+    <text class="ybm">已报名<text class="bmnum">200</text>  人</text>
+    <text class="ybm1"><text class="bmnum">200</text> 次浏览</text>
+  </view>
+  <!-- 已报名 -->
+  <view>
+      <block wx:for="{{introd_info}}" wx:key="key">
+        <text class="intro">· {{item}} \n</text>
+      </block>
+  </view>
+</view>
+
+<!-- //富文本 -->
+<view class="fwb">
+  <rich-text nodes ="{{nodes}}"></rich-text>
+</view>
+
+<!-- 图片 -->
+<view class="la_v">
+    <image class="labimg" src='/pages/imgs/za.png' mode='widthFix' ></image>
+    <view class="la_z"> 额哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+</view>
+
+<!-- 排行榜 -->
+<view class="phb">  
+  <view class="phb_title">浩信百年<text style="font-size:3vw; margin-left:3vw;">本活动</text></view>
+   <view class="phb_title_zj">—— 最佳代言人 ——</view>
+  <!-- top -->
+   <view class="phb_top">
+      <image class="ph1" src="/pages/imgs/8665.png"></image>
+      <image class="ph1" src="/pages/imgs/8665.png"></image>
+      <image class="ph1" src="/pages/imgs/8665.png"></image>
+       <!-- <block wx:for="{{carouselList}}" wx:key="key">
+        <image class="ph2" src="{{item}}"></image>
+      </block> -->
+      <image class="ph2" src="{{phbdata[0].wxhimg}}"></image>
+      <image class="ph3" src="{{phbdata[1].wxhimg}}"></image>
+      <image class="ph4" src="{{phbdata[2].wxhimg}}"></image>
+  
+      <image class="djjp djjp1" src="/pages/imgs/ac_A.png" style="margin-left: 48.5vw;"></image>
+      <image class="djjp2 djjp" src="/pages/imgs/ac_B.png" style="margin-left: 24.5vw;"></image>
+      <image class="djjp3 djjp" src="/pages/imgs/ac_C.png" style="margin-left: 72.5vw;"></image>
+      <view class="phb_name_z">
+          <view class="phb_name phb_name1">100</view>
+          <view class="phb_name phb_name1">100</view>
+          <view class="phb_name phb_name1">100</view>
+      </view>
+      
+   </view>
+</view>

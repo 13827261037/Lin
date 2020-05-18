@@ -1,0 +1,376 @@
+
+
+<!-- 活动弹出框 -->
+<canvas-share bindclose="close" userInfo="{{userInfo}}" visible="{{visible}}" />
+
+<view   class='container'>
+
+        <!-- 返回键 -->
+        <image bindtap='onBackTap' class='fanhui' src='/pages/imgs/zy.png'></image>
+
+        <!-- TOP大图 -->
+        <image  class="act6" src="{{ imgUrl6}}" ></image>
+
+        <view class="v1">
+                <image style="margin-left:  3.8vw;" class='i1' src='/pages/imgs/ac01.png'></image>
+                <image style="margin-left: 18.6vw;" class='i1' src='/pages/imgs/ac02.png'></image>
+                <image style="margin-left: 18.6vw;" class='i1' src='/pages/imgs/ac03.png'></image>
+                <image style="margin-left: 18.6vw;" class='i1' src='/pages/imgs/ac04.png'></image>
+        </view>
+        <text style="left: 12.5vw;top: 104vw;" class="t1">造型</text>
+        <text style="left: 12.5vw;top: 108vw;" class="t1">1套</text>
+        <text style="left: 38.5vw;top: 104vw;" class="t1">拍摄</text>
+        <text style="left: 38.5vw;top: 108vw;" class="t1">20张</text>
+        <text style="left: 64.5vw;top: 104vw;" class="t1">精修</text>
+        <text style="left: 64.5vw;top: 108vw;" class="t1">5张</text>
+        <text style="left: 90.5vw;top: 104vw;" class="t1">团队</text>
+        <text style="left: 90.5vw;top: 108vw;" class="t1">资深</text>
+
+        <view class="v2">
+                <view class="t3">免费</view>
+                <view style="text-indent:12vw;" class="t4">公益活动^免费拍婚纱照^火热报名中，经典婚纱照免费体验</view>
+                <view class="t5">婚纱摄影 · 东莞</view>
+                <view class="t6">￥</view>
+                <view class="t7">0</view>
+                <view class="t8">￥1999</view>
+                <view style="margin-top: 23vw;" class="t9">· 由于报名人数较多，为保证拍摄流程流畅，需支付<nne style="color: #FE5775;">200元</nne>押金。</view>
+                <view style="margin-top: 30vw;" class="t9">· 承诺交件时押金<nne style="color: #FE5775;">100%</nne>退还。</view>
+                <view style="margin-top: 37vw;" class="t9">· 押金可以到店升级为现金券使用。</view>
+        </view>
+
+        <view class="v3">
+                <view class="vtt3">已报名<nne class="nn1">{{sunb}}</nne>人</view>
+                <view class="vtt4"><nne class="nn1">{{llnb}}</nne>次浏览</view>
+
+                <view class="vvw1" style="margin-left: 8vw;"></view>
+                <view class="vvw1" style="margin-left: 22.8vw;"></view>
+                <view class="vvw1" style="margin-left: 37.6vw;"></view>
+                <view class="vvw1" style="margin-left: 52.4vw;"></view>
+                <view class="vvw1" style="margin-left: 67.2vw;"></view>
+                <view class="vvw1" style="margin-left: 82vw;"></view>
+                <view class="vvw2" style="margin-left: 8vw;"></view>
+                <view class="vvw2" style="margin-left: 22.8vw;"></view>
+                <view class="vvw2" style="margin-left: 37.6vw;"></view>
+                <view class="vvw2" style="margin-left: 52.4vw;"></view>
+                <view class="vvw2" style="margin-left: 67.2vw;"></view>
+                <view class="vvw2" style="margin-left: 82vw;"></view>
+
+                <view class="vvt1" style="margin-left: 8vw;">{{msgList[0].wxname}}</view>
+                <view class="vvt1" style="margin-left: 22.8vw;">{{msgList[1].wxname}}</view>
+                <view class="vvt1" style="margin-left: 37.6vw;">{{msgList[2].wxname}}</view>
+                <view class="vvt1" style="margin-left: 52.4vw;">{{msgList[3].wxname}}</view>
+                <view class="vvt1" style="margin-left: 67.2vw;">{{msgList[4].wxname}}</view>
+                <view class="vvt1" style="margin-left: 82vw;">{{msgList[5].wxname}}</view>
+                <view class="vvt2" style="margin-left: 8vw;">{{msgList[6].wxname}}</view>
+                <view class="vvt2" style="margin-left: 22.8vw;">{{msgList[7].wxname}}</view>
+                <view class="vvt2" style="margin-left: 37.6vw;">{{msgList[8].wxname}}</view>
+                <view class="vvt2" style="margin-left: 52.4vw;">{{msgList[9].wxname}}</view>
+                <view class="vvt2" style="margin-left: 67.2vw;">{{msgList[10].wxname}}</view>
+                <view class="vvt2" style="margin-left: 82vw;">{{msgList[11].wxname}}</view>
+
+                <image  class="fimg1" src="{{msgList[0].wxhimg}}" style="margin-left: 8.5vw;"></image>
+                <image  class="fimg1" src="{{msgList[1].wxhimg}}" style="margin-left: 23.3vw;"></image>
+                <image  class="fimg1" src="{{msgList[2].wxhimg}}" style="margin-left: 38.1vw;"></image>
+                <image  class="fimg1" src="{{msgList[3].wxhimg}}" style="margin-left: 52.9vw;"></image>
+                <image  class="fimg1" src="{{msgList[4].wxhimg}}" style="margin-left: 67.7vw;"></image>
+                <image  class="fimg1" src="{{msgList[5].wxhimg}}" style="margin-left: 82.5vw;"></image>
+                <image  class="fimg2" src="{{msgList[6].wxhimg}}" style="margin-left: 8.5vw;"></image>
+                <image  class="fimg2" src="{{msgList[7].wxhimg}}" style="margin-left: 23.3vw;"></image>
+                <image  class="fimg2" src="{{msgList[8].wxhimg}}" style="margin-left: 38.1vw;"></image>
+                <image  class="fimg2" src="{{msgList[9].wxhimg}}" style="margin-left: 52.9vw;"></image>
+                <image  class="fimg2" src="{{msgList[10].wxhimg}}" style="margin-left: 67.7vw;"></image>
+                <image  class="fimg2" src="{{msgList[11].wxhimg}}" style="margin-left: 82.5vw;"></image>
+        </view>
+
+
+        <!--  活动说明 -->
+        <!-- <view class="vcc1">
+                <view class="vcc2">——       活动说明      ——</view>
+
+                <view class="vcc3">浩信百年 —— 公益活动：免费拍婚纱照</view>
+
+                <view class="vcc4">套餐内容：（价值1999元）</view>
+                <view class="vcc4">◆ 全程VIP一对一贴心服务。</view>
+                <view class="vcc4">◆ 顶级化妆造型各1组。</view>
+                <view class="vcc4">◆ 全场拍摄区服饰任选男女各1套。</view>
+                <view class="vcc4">◆ 广告级摄影棚景拍摄1套。</view>
+                <view class="vcc4">◆ 资深摄影师高品质原创摄20张以上。</view>
+                <view class="vcc4">◆ 时尚风格精修大片5张。</view>
+                <view class="vcc4">◆ 10寸新款定制摆台1幅。</view>
+                <view class="vcc4">◆ 免费提供一线国际品牌化妆品，睫毛粉扑。</view>
+                <view class="vcc4">◆ 免费使用进口韩国饰品。</view>
+                <view class="vcc4">◆ 全程绝无隐形消费。</view>
+
+                <view class="vcc4" style="margin-top: 3vw;">*由于报名人数较多，为避免恶意报名。</view> 
+                <view class="vcc4" style="color: #FFE3BB;">为保证拍摄流程的顺畅，需要交200元押金，承诺交件时100%退还。</view>
+        </view>
+        <image  class="otto" src="/pages/imgs/otto.png" ></image> -->
+
+
+        <!-- 右侧-活动说明 -->
+        <!-- <view class="tte33" bindtap='showRule'>活动说明</view> -->
+        <!--  小弹出层  -->
+        <!-- <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+                <view class='ruleZhezhaoContent'>
+                        <view class="rr4">重新编辑</view>
+                        <view class="rr5" style="margin-top: 10px;">这是一个转介绍工具，你为浩信百年品牌推广，则获得该品牌相应的推广费。</view>
+                        <view class="rr5" style="margin-top: 20px;">1.怎么赚钱？</view>
+                        <view class="rr5" >从你分享出去的二维码海报进来的人群，都属于你推荐的人，他们线上消费/到店消费，你将获得相应的推广提成。</view>
+                        <view class="rr5" style="margin-top: 20px;">2.二级推荐利益，收益团队化。</view>
+                        <view class="rr5" >被你推荐的人B，B也推荐了别人C，如果C线上消费/到店消费，则你也获得少量推广提成。</view>
+                        <view class="rr5" style="margin-top: 20px;">3.怎么赚更多的钱？</view>
+                        <view class="rr5" >分享海报到群/朋友圈，让更多人成为您推荐的人。推荐大于30人，则升级为推荐经理，分享额外分红。推荐大于50人，则升为推荐总监，享受更多额外分红。</view>
+                        <view class="rr5" style="text-align: center;margin-top: 20px;margin-bottom: 10px;font-size: 12px;color: rgb(197, 182, 182);">此活动浩信百年公司拥有最终解释权</view>
+                        <image src="/pages/imgs/guanbi.png" class='ruleHide' bindtap='hideRule'></image> 
+                </view>
+        </view> -->
+
+
+        <image  class="ccimg2" src="{{imgUrl4}}" wx:if="{{reachbottom}}"></image> 
+      <rich-text nodes="{{nodes}}"></rich-text>
+
+        <image  class="ccimg3" src="/pages/imgs/ac_c2.png" ></image>
+
+
+        <view class="bo77">
+                <view class="nn87">浩信百年</view>
+                <text class="n87">本活动</text>
+                <view class="nn88">— 最佳代言人 —</view>
+                <image class="ffb" src="/pages/imgs/8665.png"></image>
+                <image class="ffc" src="/pages/imgs/8665.png"></image>
+                <image class="ffd" src="/pages/imgs/8665.png"></image>
+                <image class="djjp" src="/pages/imgs/ac_A.png" style="margin-left: 48.5vw;"></image>
+                <image class="djjp" src="/pages/imgs/ac_B.png" style="margin-left: 24.5vw;"></image>
+                <image class="djjp" src="/pages/imgs/ac_C.png" style="margin-left: 72.5vw;"></image>
+                <image class="xxb" src="{{phbdata[0].wxhimg}}"></image>
+                <image class="xxc" src="{{phbdata[1].wxhimg}}"></image>
+                <image class="xxd" src="{{phbdata[2].wxhimg}}"></image>
+                <!-- <view class="vw2"><view class="vw35">{{phbdata[0].rank}}</view></view>
+                <view class="vw3"><view class="vw35">{{phbdata[1].rank}}</view></view>
+                <view class="vw4"><view class="vw35">{{phbdata[2].rank}}</view></view> -->
+                <view class="ss23">{{phbdata[0].wxname}}</view>
+                <view class="ss24">{{phbdata[1].wxname}}</view>
+                <view class="ss25">{{phbdata[2].wxname}}</view>
+                <view class="vrr23" style="margin-left: 40vw;">{{phbdata[0].tppnb}}人</view>
+                <view class="vrr23" style="margin-left: 16vw;">{{phbdata[1].tppnb}}人</view>
+                <view class="vrr23" style="margin-left: 64vw;">{{phbdata[2].tppnb}}人</view>
+                <view class="yy23">{{phbdata[0].brokerage}}<nne style="font-size: 2.8vw;">元</nne></view>
+                <view class="yy24">{{phbdata[1].brokerage}}<nne style="font-size: 2.8vw;">元</nne></view>
+                <view class="yy25">{{phbdata[2].brokerage}}<nne style="font-size: 2.8vw;">元</nne></view> 
+                <view class="v78" bindtap="vvs2">查看排行榜</view>
+        </view>
+
+
+        <view class="vo2" wx:if="{{vo2_tf}}">
+                <view class="vo3">排名</view>
+                <view class="vo4">用户</view>
+                <view class="vo5">邀请人数</view>
+                <view class="vo6">累计收益</view>
+
+                <view class="vm4" style="margin-top: 18vw;">4</view>
+                <view class="vm4" style="margin-top: 28vw;">5</view>
+                <view class="vm4" style="margin-top: 38vw;">6</view>
+                <view class="vm4" style="margin-top: 48vw;">7</view>
+                <view class="vm4" style="margin-top: 58vw;">8</view>
+                <view class="vm4" style="margin-top: 68vw;">9</view>
+                <view class="vm4" style="margin-top: 78vw;">10</view>
+                <!-- <view wx:if="{{xswdph}}" class="vm4" style="margin-top: 88vw;color: #FDE2BA;">{{wphdata}}</view> -->
+                
+                <view class="vy4" style="margin-top: 16vw;">
+                        <image  class="vyimg4" src="{{phbdata[3].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 26vw;">
+                        <image  class="vyimg4" src="{{phbdata[4].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 36vw;">
+                        <image  class="vyimg4" src="{{phbdata[5].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 46vw;">
+                        <image  class="vyimg4" src="{{phbdata[6].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 56vw;">
+                        <image  class="vyimg4" src="{{phbdata[7].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 66vw;">
+                        <image  class="vyimg4" src="{{phbdata[8].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 76vw;">
+                        <image  class="vyimg4" src="{{phbdata[9].wxhimg}}" ></image> 
+                </view>
+                <!-- <view wx:if="{{xswdphss}}" class="vy4" style="margin-top: 86vw;">
+                        <image  class="vyimg4" src="{{wedata.wxhimg}}" ></image>
+                </view> -->
+                
+                <view class="vnm4" style="margin-top: 18vw;">{{phbdata[3].wxname}}</view>
+                <view class="vnm4" style="margin-top: 28vw;">{{phbdata[4].wxname}}</view>
+                <view class="vnm4" style="margin-top: 38vw;">{{phbdata[5].wxname}}</view>
+                <view class="vnm4" style="margin-top: 48vw;">{{phbdata[6].wxname}}</view>
+                <view class="vnm4" style="margin-top: 58vw;">{{phbdata[7].wxname}}</view>
+                <view class="vnm4" style="margin-top: 68vw;">{{phbdata[8].wxname}}</view>
+                <view class="vnm4" style="margin-top: 78vw;">{{phbdata[9].wxname}}</view>
+                <!-- <view wx:if="{{xswdphss}}" class="vnm4" style="margin-top: 88vw;color: #FDE2BA;">{{wedata.wxname}}</view> -->
+                
+                <view class="vyq4" style="margin-top: 18vw;">{{phbdata[3].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 28vw;">{{phbdata[4].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 38vw;">{{phbdata[5].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 48vw;">{{phbdata[6].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 58vw;">{{phbdata[7].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 68vw;">{{phbdata[8].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 78vw;">{{phbdata[9].tppnb}}人</view>
+                <!-- <view wx:if="{{xswdphss}}" class="vyq4" style="margin-top: 88vw;color: #FDE2BA;">{{ztjrsddata}}人</view> -->
+                
+                <view class="vsr4" style="margin-top: 18vw;">{{phbdata[3].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 28vw;">{{phbdata[4].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 38vw;">{{phbdata[5].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 48vw;">{{phbdata[6].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 58vw;">{{phbdata[7].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 68vw;">{{phbdata[8].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 78vw;">{{phbdata[9].brokerage}}元</view>
+                <!-- <view wx:if="{{xswdphss}}" class="vsr4" style="margin-top: 88vw;color: #FDE2BA;">{{zyjdata}}元</view> -->
+
+               <view class="vp10">——  排名仅显示活动前10名哦  ——</view>
+        </view>
+
+
+        <view class="zz">技术支持：小鹿分销</view>
+
+
+        <view class="vc22"></view>
+
+
+        <view class="tt1" style="position:fixed; bottom:0;">
+                <view class="xx2" bindtap="showModal">成为浩信百年代言人</view>
+                <view class="xx3" bindtap="showModal2">报 名</view>
+                <button wx:if="{{!hasUserInfo}}" class="nnn" style="width: 90vw;" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+                
+        </view>
+
+
+        <!-- 成为浩信百年代言人  -  弹框遮蔽层 -->
+        <view class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+        <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}" bindtap="hideModal">
+
+                <form bindsubmit='txForm'>
+                        <view class="vv92" catchtap='inbtn'>
+                                <image  class="img23" src="/pages/imgs/8665.png" ></image>
+                                <image  class="img24" src="{{wedata.wxhimg}}" ></image>
+                                <view class="vv93" style="left: 15vw;">我为</view>
+                                <view class="vv93" style="left: 24vw; color: #FFE2BA;">浩信百年</view>
+                                <view class="vv93" style="left: 40.5vw;">代言：</view>
+
+                                <view class="vv94">
+                                        <input value="{{telValue}}" maxlength="18" bindinput="bindKeyInput"  name='inp_haha' class="vtinp"  placeholder="在此输入要说的话"/>
+                                </view>
+
+                                <view class="vdd" wx:if="{{input20}}" >*字数过多</view>
+                                <view class="cc95" bindtap="inprdBen">随机</view>
+
+                                <image  class="img25" src="/pages/imgs/hdtb.png" ></image>
+
+                                <view class="vnm">{{wedata.wxname}}</view>
+                                <view class="vtm">{{currentdate}}</view>
+                                <image  class="img26" src="/pages/imgs/hdtbxx.png" ></image>
+                                <view class="vcc22"></view>
+                                <view class="vcc23"></view>
+                                <view class="vcc24">{{wedata.rank}}</view>
+                                <button formType="submit" class="but34" bindtap="show" style="width: 65vw;">提 交</button>
+                                <image  class="img27" src="/pages/imgs/gb.png" bindtap="hideModal"></image>
+                                <image  class="img22" src="/pages/imgs/taiyang.png" ></image>
+                                
+                        </view>
+                </form>
+
+        </view>
+
+
+        <!-- 报 名  -  弹框遮蔽层 -->
+        <view class="commodity_screen" wx:if="{{showModalStatus2}}"></view>
+        <view animation="{{animationData}}" class="c_a_b2" wx:if="{{showModalStatus2}}" style="height:{{viewb}}vw;">
+
+                <view class="opp1" >
+                        <image class="zz3" src="/pages/imgs/x.png" bindtap="hideModal2"></image>
+
+                        <text class="hh7">{{clock}}</text>    
+                        <view class="hh72" style="left: 36vw; "></view>
+                        <view class="hh72" style="left: 46vw; "></view>
+                        <view class="hh72" style="left: 56vw; "></view>
+
+                        <view class="gg6">剩余支付时间</view>
+
+                        <text class="hh82">浩信百年婚纱摄影公益套餐</text> 
+                        <text class="hh83">活动需交200元押金，承诺交件时100%退还。</text> 
+                        <text class="hh84">￥200</text> 
+
+                        <text class="hh85" style="top: 42vw;">限免</text>
+                        <text class="hh85" style="top: 48vw;">优惠</text>
+                        <text class="hh86" style="top: 41.5vw;">每月限99人，先报名先安排。</text>
+                        <text class="hh86" style="top: 48vw;">公益套餐0元体验。</text>
+
+                        <view class="ss9" bindtap="cL1">套餐内容:</view>
+                        <image class="ss8" src="/pages/imgs/xx.png" ></image>
+                </view>
+                <view class="jj1" wx:if="{{jj1}}">
+                        <text class="kk1" style="margin-top: 4.5vw;">套餐内容：（价值1999元）</text>
+                        <text class="kk1" style="margin-top: 9vw;">◆ 全程VIP一对一贴心服务。</text>
+                        <text class="kk1" style="margin-top: 13vw;">◆ 顶级化妆造型各1组。</text>
+                        <text class="kk1" style="margin-top: 17vw;">◆ 全场拍摄区服饰任选男女各 1 套。</text>
+                        <text class="kk1" style="margin-top: 21vw;">◆ 广告级摄影棚景拍摄1套。</text>
+                        <text class="kk1" style="margin-top: 25vw;">◆ 资深摄影师高品质原创摄20张以上。</text>
+                        <text class="kk1" style="margin-top: 29vw;">◆ 时尚风格精修大片5张。</text>
+                        <text class="kk1" style="margin-top: 33vw;">◆ 10寸新款定制摆台1幅。</text>
+                        <text class="kk1" style="margin-top: 37vw;">◆ 免费提供一线国际品牌化妆品，睫毛粉扑。</text>
+                        <text class="kk1" style="margin-top: 41vw;">◆ 免费使用进口韩国饰品。</text>
+                        <text class="kk1" style="margin-top: 45vw;">◆ 全程绝无隐形消费。</text>
+                </view>
+                <view class="opp2" > 
+                        <text class="hh87" style="margin-top: 4vw;">* 报名后72小时内将会有客服专员联系。</text>
+                        <text class="hh87" style="margin-top: 8vw;">* 退换政策</text>
+                        <image class="zz4" src="/pages/imgs/xx2.png" bindtap="cL2"></image>
+                </view>
+                <view class="jj2" wx:if="{{jj2}}">
+                        <text class="hh88" style="margin-top: 2vw;">*只退150元hahahhahhaaha</text>
+                </view>
+                <view class="opp3" >
+                        <view class="zz5" bindtap="srrrw" >￥ 200 立即支付</view>
+                        <button class="zz6" style="width: 92vw;" wx:if="{{!modalstatus}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button>
+                </view>
+        </view>
+
+
+        <!-- 报 名成功后  -  弹框遮蔽层  wx:if="{{showModalStatus3}}" -->
+        <view class="commodity_screen" wx:if="{{showModalStatus3}}"></view>
+        <view animation="{{animationData}}" class="c_a_b3" wx:if="{{showModalStatus3}}">
+
+                <view class="cc92">
+                        <image  class="imgz1" src="/pages/imgs/hg.png" ></image>
+                        <view class="cc93" >恭喜您报名成功！</view>
+                        <image  class="imgz2" src="/pages/imgs/hdtb.png" ></image>
+                        <text class="cc94" style="margin-top: 10vw;">感谢您选择浩信百年，</text>
+                        <text class="cc94" style="margin-top: 17vw;">请在首页查看优惠券信息，</text>
+                        <text class="cc94" style="margin-top: 24vw;">我们将会在48小时内联系您。</text>
+                        <image  class="imgz3" src="/pages/imgs/hdtbxx.png" ></image>
+                        <text class="ccc95" >欢迎成为品牌代言人~</text>
+                        <image  class="imgz4" src="/pages/imgs/nn3.png" style="left: 1vw;"></image>
+                        <image  class="imgz4" src="/pages/imgs/nn2.png" style="right: 1vw;"></image>
+                        <view class="ccc96" bindtap="mm32" >为我们设计一句代言词/支持语~</view>
+                        <text class="ccc97" bindtap='onBackTap'>先去首页逛逛~</text>
+                        <image  class="img66" src="/pages/imgs/gb.png" bindtap="hideModal3"></image>
+                        <image  class="img22" src="/pages/imgs/taiyang.png" ></image>
+                </view>
+
+        </view>
+
+
+        <!-- 顶部弹幕滚动 -->
+        <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+                <block wx:for="{{msgList22}}">
+                        <swiper-item>
+                                <image class="imgADD" src="{{item.wxhimg}}" ></image>
+                                <view class="ttA">恭喜{{item.wxname}}</view>
+                                <view class="ttB">获得介绍客户收益{{item.gain}}元！</view>
+                        </swiper-item>
+                </block>
+       </swiper>
+
+
+</view>

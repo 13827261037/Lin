@@ -1,0 +1,17 @@
+
+
+/**app.wxss**/
+/* @font-face{
+        font-family: 'benmojianzi';
+        src: url('https://axure.xinice.com/static/font/benmojianzi.TTF');
+} */
+
+
+.container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+} 

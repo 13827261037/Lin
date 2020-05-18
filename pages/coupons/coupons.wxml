@@ -1,0 +1,30 @@
+
+
+<view  class="container" style="background:#FF8585; height: 100vh;">
+
+        <view class="vie1" >
+
+                <image bindtap='ssyTap' class='fanhui' src='/pages/imgs/fanhui.png'></image>
+
+                <view class="v-tex1">优惠券</view>
+
+                <view class="v-tex2"><nne style="font-size: 9.7vw;margin-right: 1vw;">{{coupondata}}</nne>张</view>
+
+
+
+                <image class="cp2" src="/pages/imgs/cp2.png" wx:if="{{yhjxs2}}"></image>
+                <view class="zz37" wx:if="{{yhjxs2}}">报名</view>
+                <view class="vj3" wx:if="{{yhjxs2}}">￥200</view>
+                <view class="vj4" wx:if="{{yhjxs2}}">￥1900公益套餐免费拍</view>
+                <view class="ee3" wx:if="{{yhjxs2}}">
+                        <text class="tt2">免费拍婚纱照活动专用</text>
+                        <text class="tt3">有效期：永久有效</text>
+                </view>
+
+        
+        </view>
+
+
+
+
+</view>

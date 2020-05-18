@@ -1,0 +1,58 @@
+
+<canvas-share bindclose="close" userInfo="{{userInfo}}" visible="{{visible}}" />
+
+<image bindtap='onBackTap' class='fanhui' src='/pages/imgs/fanhui.png'></image>
+
+<view class="beijing">
+
+  该图片暂时不添加
+
+  <!-- <image class="beijing-img" src="/pages/imgs/5665.png" ></image> -->
+
+
+</view>
+
+<view class="touming"></view>
+
+<view class="dibu">
+  <view class="dibu1">
+    <image class="dibu-img1" src="/pages/imgs/5666.png" ></image>
+  </view>
+
+  <view class="dibu2">
+    <image class="dibu-img2" src="/pages/imgs/2233.png" ></image>
+  </view>
+  <view class="dibu3">福利活动</view>
+
+  <view class="dibu4">
+    <image class="dibu-img4" src="/pages/imgs/9963.png" ></image>
+  </view>
+  <view class="dibu5">立马分享到微信群</view>
+
+  <view class="dibu4">
+    <image class="dibu-img4" src="/pages/imgs/9964.png" ></image>
+  </view>
+  <view class="dibu5">尝试赚取推广佣金</view>
+
+  <view class="dibu6">87%用户选择分享到微信群</view>
+
+  <view class="dibu7">
+    <button bindtap="show" class="fi bu1" style="width: 8rem;">分享到朋友圈</button>
+    <button class="fi bu2" style="width: 8rem;">分享到微信群</button>
+
+
+  </view>
+
+
+
+
+</view>
+
+
+
+
+
+
+  
+ 
+

@@ -1,0 +1,217 @@
+
+<canvas-share bindclose="close" userInfo="{{userInfo}}" visible="{{visible}}" />
+<canvas-shareww bindclose="close" userInfo="{{userInfo}}" visible="{{visibleww}}" />
+
+<view class='container'>
+  
+        
+        <!-- 顶部弹幕滚动 -->
+        <!-- <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+                <block wx:for="{{msgList}}">
+                        <swiper-item>
+                                <image class="imgADD" src="{{item.wxhimg}}" ></image>
+                                <view class="ttA">恭喜{{item.wxname}}</view>
+                                <view class="ttB">获得佣金收益{{item.gain}}元！</view>
+                        </swiper-item>
+                </block>
+       </swiper> -->
+  
+
+        <!-- 拼接大图 -->
+        <image class="imgA1" src="{{imgUrl1}}" ></image>
+        <image class="imgA2" src="{{imgUrl2}}" ></image>
+        <image class="imgA3" src="{{imgUrl3}}" ></image>
+        <text class="tx666">666</text><text class="txyuan">元</text>
+        <image class="imgA4" src="{{imgUrl4}}" ></image>
+        <image class="imgVV" src="/pages/imgs/fxnn.png" animation='{{animationMiddleHeaderItem}}'></image>
+        <image class="imgA5" src="{{imgUrl5}}" ></image>
+
+
+        <!-- 右侧-如何赚钱 -->
+        <view class="tte33" bindtap='showRule'>如何赚钱</view>
+        <!--  小弹出层  -->
+        <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+                <view class='ruleZhezhaoContent'>
+                        <view class="rr4">如何赚钱</view>
+                        <view class="rr5" style="margin-top: 10px;">这是一个转介绍工具，你为浩信百年品牌推广，则获得该品牌相应的推广费。</view>
+                        <view class="rr5" style="margin-top: 20px;">1.怎么赚钱？</view>
+                        <view class="rr5" >从你分享出去的二维码海报进来的人群，都属于你推荐的人，他们线上消费/到店消费，你将获得相应的推广提成。</view>
+                        <view class="rr5" style="margin-top: 20px;">2.二级推荐利益，收益团队化。</view>
+                        <view class="rr5" >被你推荐的人B，B也推荐了别人C，如果C线上消费/到店消费，则你也获得少量推广提成。</view>
+                        <view class="rr5" style="margin-top: 20px;">3.怎么赚更多的钱？</view>
+                        <view class="rr5" >分享海报到群/朋友圈，让更多人成为您推荐的人。推荐大于30人，则升级为推荐经理，分享额外分红。推荐大于50人，则升为推荐总监，享受更多额外分红。</view>
+                        <view class="rr5" style="text-align: center;margin-top: 20px;margin-bottom: 10px;font-size: 12px;color: rgb(197, 182, 182);">此活动浩信百年公司拥有最终解释权</view>
+                        <image src="/pages/imgs/guanbi.png" class='ruleHide' bindtap='hideRule'></image> 
+                </view>
+        </view>
+
+
+        <!-- 用户信息栏 -->
+        <image class="imgB2" src="/pages/imgs/3562.png"></image>
+        <!-- 获取昵称头像遮挡层 -->
+        <button wx:if="{{!hasUserInfo}}" class="vvee" style="width: 80vw;" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+        <image class="h-img1" src="/pages/imgs/8665.png" ></image>
+        <view wx:if="{{!hasUserInfo}}" class="h-vte">点击获取用户信息</view>
+        <view class="ttv2">累计收益</view>
+        <view class="ttv3">介绍</view>
+        <image wx:if="{{hasUserInfo}}" class="h-img2" src='{{userInfo.avatarUrl}}'></image>
+        <view wx:if="{{hasUserInfo}}" class="h-vte">{{userInfo.nickName}}</view>
+        <view class="tex2" bindtap="goldBen"><nne style="font-size: 4.8vw;">￥ </nne> <nne style="font-weight:Bold;font-size: 6.9vw;">{{zyjdata}}</nne> <nne style="font-size:4.8vw;"> 元</nne></view>
+        <view class="tex3"  bindtap="recommendBen"> <nne style="font-weight:Bold;font-size: 6.9vw;">{{ztjrsddata}}</nne> <nne style="font-size: 4.8vw;"> 人</nne></view>
+        <view wx:if="{{hasUserInfo}}" class="tex4">推荐代言人：{{tjrdata}}</view>
+        <!-- <view wx:if="{{hasUserInfo}}" class="vvvu"></view>
+        <view wx:if="{{hasUserInfo}}" class="vvvu-2">{{rankdata}}</view> -->
+        <view wx:if="{{hasUserInfo}}" class="tex5" bindtap="cpBen"><nne style="font-size: 5vw;margin-right: 1vw;"> <nne style="font-weight:Bold;font-size: 6.9vw;">{{coupondata}} </nne> </nne> <nne style="font-size:4.8vw"> 张优惠卷</nne></view>
+        <view class="tx2" bindtap="rolloutBen">提现</view>
+
+
+        <image class="cccimg" mode="widthFix" src="/pages/imgs/za.png"></image>
+        <view class="vv45" bindtap='showRule'>赚钱攻略</view>
+
+
+        <view class="vve6">
+                <!-- <image class="vveimg" src="/pages/imgs/logo2.png"></image> -->
+        </view>
+        <view class="nn87">浩信百年</view>
+        <view class="nn88">— 最佳代言人 —</view>
+         <image class="ffb" src="/pages/imgs/8665.png"></image>
+        <image class="ffc" src="/pages/imgs/8665.png"></image>
+        <image class="ffd" src="/pages/imgs/8665.png"></image>
+        
+        <!-- 奖牌 -->
+        <image class="jp1" src="/pages/imgs/ac_A.png"></image>
+        <image class="jp2" src="/pages/imgs/ac_B.png"></image>
+        <image class="jp3" src="/pages/imgs/ac_C.png"></image>
+
+        <image class="xxb" src="{{phbdata[0].wxhimg}}"></image>
+        <image class="xxc" src="{{phbdata[1].wxhimg}}"></image>
+        <image class="xxd" src="{{phbdata[2].wxhimg}}"></image>
+        <!-- <view class="vw2"><view class="vw35">{{phbdata[0].rank}}</view></view>
+        <view class="vw3"><view class="vw35">{{phbdata[1].rank}}</view></view>
+        <view class="vw4"><view class="vw35">{{phbdata[2].rank}}</view></view> -->
+        <view class="ss23">{{phbdata[0].wxname}}</view>
+        <view class="ss24">{{phbdata[1].wxname}}</view>
+        <view class="ss25">{{phbdata[2].wxname}}</view>
+        <view class="yy23">{{phbdata[0].brokerage}}元</view>
+        <view class="yy24">{{phbdata[1].brokerage}}元</view>
+        <view class="yy25">{{phbdata[2].brokerage}}元</view>
+        <view class="SS89" bindtap="vvs2">查看排行榜</view>
+
+
+        <view class="vo2" wx:if="{{vo2_tf}}">
+                <view class="vo3">排名</view>
+                <view class="vo4">用户</view>
+                <view class="vo5">邀请人数</view>
+                <view class="vo6">累计收益</view>
+
+                <view class="vm4" style="margin-top: 18vw;">4</view>
+                <view class="vm4" style="margin-top: 28vw;">5</view>
+                <view class="vm4" style="margin-top: 38vw;">6</view>
+                <view class="vm4" style="margin-top: 48vw;">7</view>
+                <view class="vm4" style="margin-top: 58vw;">8</view>
+                <view class="vm4" style="margin-top: 68vw;">9</view>
+                <view class="vm4" style="margin-top: 78vw;">10</view>
+                <!-- <view wx:if="{{xswdph}}" class="vm4" style="margin-top: 88vw;color: #FDE2BA;">{{wphdata}}</view> -->
+                
+                <view class="vy4" style="margin-top: 16vw;">
+                        <image  class="vyimg4" src="{{phbdata[3].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 26vw;">
+                        <image  class="vyimg4" src="{{phbdata[4].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 36vw;">
+                        <image  class="vyimg4" src="{{phbdata[5].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 46vw;">
+                        <image  class="vyimg4" src="{{phbdata[6].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 56vw;">
+                        <image  class="vyimg4" src="{{phbdata[7].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 66vw;">
+                        <image  class="vyimg4" src="{{phbdata[8].wxhimg}}" ></image> 
+                </view>
+                <view class="vy4" style="margin-top: 76vw;">
+                        <image  class="vyimg4" src="{{phbdata[9].wxhimg}}" ></image> 
+                </view>
+                <!-- <view wx:if="{{xswdphss}}" class="vy4" style="margin-top: 86vw;">
+                        <image  class="vyimg4" src="{{wedata.wxhimg}}" ></image>
+                </view> -->
+                
+                <view class="vnm4" style="margin-top: 18vw;">{{phbdata[3].wxname}}</view>
+                <view class="vnm4" style="margin-top: 28vw;">{{phbdata[4].wxname}}</view>
+                <view class="vnm4" style="margin-top: 38vw;">{{phbdata[5].wxname}}</view>
+                <view class="vnm4" style="margin-top: 48vw;">{{phbdata[6].wxname}}</view>
+                <view class="vnm4" style="margin-top: 58vw;">{{phbdata[7].wxname}}</view>
+                <view class="vnm4" style="margin-top: 68vw;">{{phbdata[8].wxname}}</view>
+                <view class="vnm4" style="margin-top: 78vw;">{{phbdata[9].wxname}}</view>
+                <!-- <view wx:if="{{xswdphss}}" class="vnm4" style="margin-top: 88vw;color: #FDE2BA;">{{wedata.wxname}}</view> -->
+                
+                <view class="vyq4" style="margin-top: 18vw;">{{phbdata[3].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 28vw;">{{phbdata[4].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 38vw;">{{phbdata[5].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 48vw;">{{phbdata[6].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 58vw;">{{phbdata[7].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 68vw;">{{phbdata[8].tppnb}}人</view>
+                <view class="vyq4" style="margin-top: 78vw;">{{phbdata[9].tppnb}}人</view>
+                <!-- <view wx:if="{{xswdphss}}" class="vyq4" style="margin-top: 88vw;color: #FDE2BA;">{{ztjrsddata}}人</view> -->
+                
+                <view class="vsr4" style="margin-top: 18vw;">{{phbdata[3].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 28vw;">{{phbdata[4].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 38vw;">{{phbdata[5].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 48vw;">{{phbdata[6].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 58vw;">{{phbdata[7].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 68vw;">{{phbdata[8].brokerage}}元</view>
+                <view class="vsr4" style="margin-top: 78vw;">{{phbdata[9].brokerage}}元</view>
+                <!-- <view wx:if="{{xswdphss}}" class="vsr4" style="margin-top: 88vw;color: #FDE2BA;">{{zyjdata}}元</view> -->
+
+               <view class="vp10">——  排名仅显示活动前10名哦  ——</view>
+        </view>
+
+
+        <view class="vw77">— 活动进行时 —</view>
+        <view class="vw78">把活动代言到圈里，更容易获利哦~</view>
+        <image class="zz36" src="/pages/imgs/hdA.jpg" bindtap="activityBen"></image>
+        <view class="zz37">报名</view>
+        <view class="zz38">公益活动^免费拍婚纱照^火热报名中...</view>
+        <view class="zz39">代言收益：￥{{yongjindata}}元</view>
+
+
+        <view class="zz">技术支持：小鹿微信转介绍工具</view>
+        <!-- <navigator url="/pages/activity_copy/activity_copy">zzzz</navigator> -->
+        <view class="zz"></view>
+
+
+
+        <!-- <button class="h-but6" style="width: 18rem;" bindtap="activityBen">活动页暂时的入口</button> -->
+        <!-- <button class="h-but6" style="width: 16rem;" bindtap="ccddBen">pay页面暂时入口</button> -->
+        <!-- <button class="h-but6" style="width: 14rem;" wx:if="{{!modalstatus}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">咨询获取电话号码</button> -->
+
+
+        <!-- 霸屏获取用户权  -  弹框遮蔽层 -->
+        <!-- <view class="commodity_screen" wx:if="{{showModalStatus4}}"></view>
+        <view animation="{{animationData}}" class="c_a_b3" wx:if="{{showModalStatus4}}">
+
+                <view class="cc92">
+                        <image  class="imgz1" src="/pages/imgs/hg.png" ></image>
+                        <view class="cc93" >欢迎光临浩信百年</view>
+                        <image  class="imgz2" src="/pages/imgs/hdtb.png" ></image>
+                        <text class="cc94" style="margin-top: 6vw;">为了更好的体验</text>
+                        <text class="cc94" style="margin-top: 13vw;">需要您进行初次登录</text>
+                        <image  class="imgz3" src="/pages/imgs/hdtbxx.png" ></image>
+                        <text class="ccc95" >代言平台</text>
+                        <image  class="imgz4" src="/pages/imgs/nn3.png" style="left: 1vw;"></image>
+                        <image  class="imgz4" src="/pages/imgs/nn2.png" style="right: 1vw;"></image>
+                        <!-- <view class="ccc96" bindtap="mm32" >为我们设计一句代言词/支持语~</view> -->
+                        <!-- <text class="ccc97" bindtap='onBackTap'>先去首页逛逛~</text> -->
+                        <!-- <button  class="bb2" style="width: 66vw;" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+                        <image  class="img22" src="/pages/imgs/taiyang.png" ></image>
+                </view>
+
+        </view> -->
+
+
+
+
+
+</view>

@@ -1,0 +1,11 @@
+{
+
+  "usingComponents": {
+    "canvas-share": "../../components/canvas-share/index"
+  },
+
+  
+  "navigationBarBackgroundColor": "#403E57",
+  "navigationBarTitleText": ""
+}
+

@@ -1,0 +1,69 @@
+
+
+<view  class='container'>
+
+        <view class="vv2">
+
+                <image bindtap='goldTap' class='fanhui' src='/pages/imgs/fanhui.png'></image>
+
+                <view class="vv3">
+
+                        <form bindsubmit='txForm'>
+                                <view class="tt2">提现金额</view>
+
+                                <view class="tt3">￥</view>
+
+                                <input value="{{inp22}}" name='inp_amount' bindinput="inputCode" class="weui-input" type="number" placeholder="输入金额" />
+                                <view class="tt4" bindtap="allBut">全部</view>
+                                <view class="vv4"></view>
+                                <view class="vv44" style="margin-top: 115px;"></view>
+
+                                <view class="tt5">提现到</view>
+
+                                <!-- <image class='ii2' style="margin-left: 15%;" src='/pages/imgs/ok2.png'></image> -->
+
+                                <view class="tt6">微信</view>
+                                <!-- 提醒 开关 -->
+                                <view class="tt6-but" bindtap='showWX'></view>
+
+                                <image class='ii2' style="margin-left: 50%;" src='/pages/imgs/ok2.png'></image>
+
+                                <view class="tt7">支付宝</view>
+
+                                <input name='inp_name' class="inp2" style="margin-top: 240px;" placeholder="请输入姓名" />
+                                <view class="vv44" style="margin-top: 275px;"></view>
+
+                                <input name='inp_account' class="inp2" style="margin-top: 290px;" placeholder="请输入转账账号" />
+                                <view class="vv44" style="margin-top: 325px;"></view>
+
+                                <button formType="submit" class="but22" style="width: 74%;">提 现</button>
+                        </form>
+
+                </view>
+
+                        <view class="dtt2">1. 单次提现至多500元，至少10元。</view>
+                        <view class="dtt2">2. 提现审核时间为1-7个工作日，如遇财务系统升级可能会延期发放。</view>
+                        <view class="dtt2" style="margin-bottom: 50px;">3. 提现将收取0.6%的手续费(如提现100元，收取0.6元，实际到账99.4元)。</view>
+
+                        <!--  小弹出层  -->
+                        <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+                        <view class='ruleZhezhaoContent'>
+                                
+                                <view class="rr4">提示</view>
+
+                                <view class="rr5" >微信通道即将开通......</view>
+                                
+                                <image src="/pages/imgs/guanbi.png" class='ruleHide' bindtap='hideRule'></image> 
+                        </view>
+                </view>
+
+        </view>
+
+  
+
+
+
+  
+ 
+
+</view>

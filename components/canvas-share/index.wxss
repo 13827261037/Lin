@@ -1,0 +1,188 @@
+
+
+.share {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        background: rgba(61, 61, 61, 0.8);
+        /* background:rgb(255, 255, 255); */
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        z-index: 600;
+}
+.share.show {
+        visibility: visible;
+        opacity: 1;
+}
+.share .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translate3d(0, 100%, 0);
+        transition: transform 0.2s ease-in-out;
+        transform-origin: 50% 0;
+}
+.share.show .content {
+        transform: translate3d(0, 0, 0);
+}
+.share .content .footer {
+width: 562rpx;
+height: 100rpx;
+background: rgb(23, 189, 153);
+border-top: 2rpx solid #e9e9e9;
+align-items: center;
+font-size: 28rpx;
+}
+.share .content .footer .close {
+width: 100rpx;
+height: 100rpx;
+line-height: 100rpx;
+flex-grow: 0;
+flex-shrink: 0;
+text-align: center;
+border-left: 2rpx solid #e9e9e9;
+}
+.share .content .footer .save {
+height: 100rpx;
+line-height: 100rpx;
+flex-grow: 1;
+flex-shrink: 1;
+text-align: center;
+}
+.share.show .content .canvas {
+display: inline-block;
+}
+.share .canvas-hide {
+position: fixed;
+top: 0;
+left: 0;
+transform: translateX(-100%);
+}
+.share .content .canvas {
+display: inline-block;
+background: #fff;
+/* margin: 60rpx 0 0 0; */
+}
+.vve{
+        width: 84vw;
+        height: 84vw;
+        /* position: absolute; */
+        /* top: 20vw; */
+        /* bottom: 71vw; */
+}
+.vvs2{
+        width: 84vw;
+        height: 35vw;
+        position: absolute;
+        bottom: 36vw;
+        background: #3D3F54;
+}
+.vvs3{
+        width: 84vw;
+        height: 4vw;
+        color: #fff;
+        font-size: 2.6vw;
+        bottom: 42vw;
+        position: absolute;
+        text-align: center;
+        line-height: 4vw;
+}
+.vvs4{
+        width: 14.6vw;
+        /* height: 5vw; */
+        color: #FFE2BA;
+        font-size: 3.6vw;
+        /* bottom: 50vw; */
+        /* position: absolute; */
+        text-align: center;
+        /* line-height: 5vw; */
+        /* background: rgb(54, 68, 230); */
+        margin-left: 34.7vw;
+        margin-top: 3vw;
+        border-bottom: 1px solid #FFE2BA;
+}
+.vbut1{
+        width: 60vw;
+        height: 10vw;
+        background: #FF8585;
+        border-radius: 5vw;
+        font-size: 3.6vw;
+        color: #fff;
+        text-align: center;
+        line-height: 10vw;
+        /* top: 120vw;
+        left: 14vw;
+        position: absolute; */
+        margin-top: 3vw;
+        margin-left: 12vw;
+}
+.vbut2{
+        width: 32vw;
+        height: 9vw;
+        border-radius: 4.5vw;
+        font-size: 3.6vw;
+        color: #fff;
+        text-align: center;
+        line-height: 9vw;
+        top: 120vw;
+        left: 54vw;
+        position: absolute;
+        background: #FE5775;
+}
+.img27{
+        width: 8vw;
+        height: 8vw;
+        /* top: 145vw; */
+        /* position: absolute;  */
+        /* left: 46vw;
+        bottom: 20vw; */
+        margin-top: 10vw;
+        margin-left: 38vw;
+}
+.vvf{
+        height: 100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        /* background: #FE5775; */
+}
+.vv92{
+        width: 84vw;
+        height: 124vw;
+        /* margin-left: 10vw; */
+        background: #3D3F54;
+        /* position: absolute; */
+        /* border-radius: 2vw; */
+        /* top: 30vw; */
+        /* transform:          translateY(-50%); */
+        /* -webkit-transform: translateX(-50%) translateY(-50%); */
+        /* margin: auto; */
+}
+.v2{
+        width: 84vw;
+        height: 5vw;
+        font-size: 3.2vw;
+        color: #fff;
+        text-align: center;
+}
+.vv33{
+        width: 84vw;
+        height: 40vw;
+        background:rgba(246,246,246,1);
+        margin-top: 3vw;
+}
+.img22{
+        width: 68vw;
+        height: 31.7vw;
+        margin-top: 3vw;
+        margin-left: 11.5vw;
+}
+
+
+
+
+

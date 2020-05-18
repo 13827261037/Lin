@@ -1,0 +1,37 @@
+
+
+<view  class='container'>
+
+        <view class="vie1">
+
+                <image bindtap='ssyTap' class='fanhui' src='/pages/imgs/fanhui.png'></image>
+
+                <image class='imgA' src='/pages/imgs/2.png'></image>
+
+
+                <view class="v-tex1">账户余额</view>
+
+                <view class="v-tex2">{{yuedata}}</view>
+        
+        </view>
+
+        <button class="tixiBut" style="width:14rem;" bindtap="rolloutBen">立即提现</button>
+
+        <view class="vvg1" bindtap="golddetailBen">
+                <view class="vvg-v1">收益记录</view>
+                <view class="vvg-v2">
+                        <view class="vvv2-v1">总收益</view>
+                        <view class="vvv2-v2">￥ {{zyjdata}}</view>
+                </view>
+        </view> 
+
+        <view class="vvg1" bindtap="wwsBen">
+                <view class="vvg-v1">提现记录</view>
+                <view class="vvg-v2">
+                        <view class="vvv2-v1">总提现</view>
+                        <view class="vvv2-v2">￥ {{ztxdata}}</view>
+                 </view>
+        </view>
+
+
+</view>

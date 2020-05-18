@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/gold/gold",
+    "pages/coupons/coupons",
+    "pages/golddetail/golddetail",
+    "pages/rollout/rollout",
+    "pages/pay/pay",
+    "pages/withdraw/withdraw",
+    "pages/share/share",
+    "pages/activity/activity",
+    "pages/recommend/recommend",
+    "pages/recommend2/recommend2",
+    "pages/logs/logs",
+    "pages/activity_copy/activity_copy"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

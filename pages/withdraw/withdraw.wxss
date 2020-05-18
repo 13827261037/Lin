@@ -1,0 +1,120 @@
+
+
+.vie1{
+        width: 100vw;
+        height: 16rem;
+        background:#403E57;
+}
+
+.fanhui{
+  margin-left: 1.5rem;
+  margin-top: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 100;
+  position: absolute;
+}
+
+.imgB{
+  width: 110px;
+  height: 96px;
+  margin-left: -40px;
+  position: absolute;
+  z-index: 1;
+}
+.v-tex1{
+  width: 50%;
+  color: #fff;
+  margin-left: 1.5rem;
+  margin-top: 140px;
+
+}
+.v-tex2{
+  width: 50%;
+  color: #fff;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 20px;
+}
+.rr4{
+  font-size: 32px;
+}
+
+
+
+
+
+.projectlist{
+        width: 100%;
+        height: 600px;
+        /* background:rgb(85, 73, 221); */
+}
+.project{
+        width: 100vw;
+        height: 18vw;
+        background:#E8E5E9;
+        border-bottom: solid 2px #fff;
+}
+
+.wwc2{
+        width: 34vw;
+        height: 5vw;
+        position: absolute;
+        margin-top: 3vw;
+        margin-left: 6vw;
+        font-size: 3.2vw;
+}
+.wwc3{
+        width: 34vw;
+        height: 5vw;
+        position: absolute;
+        margin-top: 3vw;
+        margin-left: 43vw;
+        font-size: 3.2vw;
+}
+.wwc4{
+        width: 34vw;
+        height: 5vw;
+        position: absolute;
+        margin-top: 8vw;
+        margin-left: 6vw;
+        font-size: 3.2vw;
+}
+.wwc5{
+        width: 34vw;
+        height: 5vw;
+        position: absolute;
+        margin-top: 8.5vw;
+        margin-left: 43vw;
+        font-size: 2.4vw;
+        line-height:  5vw;
+        color: #a1a3a6;
+}
+.wwc6{
+        width: 71vw;
+        height: 5vw;
+        position: absolute;
+        margin-top: 12.5vw;
+        margin-left: 6vw;
+        font-size: 2.4vw;
+        line-height:  5vw;
+        color: #a1a3a6;
+}
+.wwc7{
+        width: 22vw;
+        height: 18vw;
+        position: absolute;
+        right: 6vw;
+        line-height: 18vw;
+        text-align: center;
+        font-size: 6vw;
+        font-weight: bold;
+}
+.remind{
+        width: 100%;
+        height: 40px;
+        color: #939393;
+        font-size: 12px;
+        text-align: center;
+        line-height: 40px;
+}

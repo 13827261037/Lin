@@ -1,0 +1,12 @@
+
+
+
+
+
+
+<!--pages/test/test.wxml-->
+<view>
+
+        <image wx:for="{{imgUrls}}" wx:key="item" src="{{arry[index] ? imgUrls[index].url: './../../img/index.gif'}}" class="{{arry[index] ?'Action':''}}"></image>
+        
+</view>

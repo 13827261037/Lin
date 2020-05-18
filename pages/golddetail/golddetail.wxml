@@ -1,0 +1,41 @@
+
+
+<view class="container" >
+
+        <view class="vie1">
+
+                <image bindtap='ggoldTap' class='fanhui' src='/pages/imgs/fanhui.png'></image>
+
+                <image class='imgB' src='/pages/imgs/2.png'></image>
+
+                <view class="v-tex1">累计收益</view>
+
+                <view class="v-tex2"><text class="rr4">{{zyjdata}}</text></view>
+        
+        </view>
+
+        <!-- 上拉加载列表 -->
+        <view class='projectlist' >
+                <view class='project' wx:for="{{arrayProject}}" wx:for-item="itemProjec" wx:key="id" data-datas="{{itemProjec}}" bindtap='projectDetail' >
+
+                        <view class="ffd">
+                                <image class="iimh" src="{{itemProjec.wxhimg}}"> </image>
+                        </view>
+
+                        <view class='projectdj'>{{itemProjec.rank}}级收益：</view>
+
+                        <view class='projectText'> {{itemProjec.wxname}} </view>
+
+                        <view class='projectTime'> {{itemProjec.ctime}} </view>
+
+                        <view class='projectgain'> +{{itemProjec.gain}} </view>
+                </view>
+
+                <!-- 实现屏幕上拉加载更多 -->
+                <view class='remind' wx:if="{{state==0}}"><view>没有更多了</view></view>
+        </view>
+
+
+
+
+</view>

@@ -1,0 +1,42 @@
+
+
+<view class="container" >
+
+        <view class="vie1">
+
+                <image bindtap='ggdTap' class='fanhui' src='/pages/imgs/fanhui.png'></image>
+
+                <image class='imgB' src='/pages/imgs/2.png'></image>
+
+                <view class="v-tex1">累计提现</view>
+
+                <view class="v-tex2"><text class="rr4">{{ztxdata}}</text></view>
+        
+        </view>
+
+        <!-- 上拉加载列表 -->
+        <view class='projectlist' >
+                <view class='project' wx:for="{{arrayProject}}" wx:for-item="itemProjec" wx:key="id" data-datas="{{itemProjec}}" bindtap='projectDetail' >
+
+                        <view class='wwc2'>提现金额：{{itemProjec.amount}}</view>
+
+                        <view class='wwc3'>实到金额：{{itemProjec.reality}}</view>
+
+                        <view class='wwc4'>提现方式：{{itemProjec.mode}}</view>
+
+                        <view class='wwc5'>{{itemProjec.atime}}</view>
+
+                        <view class='wwc6'>申请码：{{itemProjec.ordernb}}</view>
+
+                        <view class='wwc7'>{{itemProjec.fettle}}</view>
+
+                </view>
+
+                <!-- 实现屏幕上拉加载更多 -->
+                <view class='remind' wx:if="{{state==0}}"><view>没有更多了</view></view>
+        </view>
+
+
+
+
+</view>

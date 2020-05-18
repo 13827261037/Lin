@@ -1,0 +1,50 @@
+
+
+<view  class='container'>
+  <view class="bb2">
+    <view class="cc3">浩信百年 · 极致服务</view>
+
+    <view class="ss4">
+
+      <image class="ss-img" src="/pages/imgs/love.png" ></image> 
+
+      <view class="ee6">
+        <view class="tt2">￥</view>
+        <input  maxlength="6" type="number" bindinput="bindKeyInput" class="tt3" name="" placeholder=""/>
+      </view>
+
+      <view class="ee66">
+      </view>
+
+      <view class="uu7">
+        <image class="uu-img" src="/pages/imgs/ok.png" ></image> 
+        <view class="uu-tt">暂无优惠卷</view>
+      </view>
+
+      <view class="ww8">￥{{inputValue}}</view>
+
+      <button class="nn9" bindtap="paybut">立即支付</button>
+
+    </view>
+
+    
+
+
+
+
+
+
+
+
+  </view>
+
+  
+
+
+
+
+
+  
+ 
+
+</view>

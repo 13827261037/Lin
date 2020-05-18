@@ -1,0 +1,125 @@
+
+
+.vie1{
+        width: 100vw;
+        height: 16rem;
+        background:#403E57;
+}
+
+.fanhui{
+  margin-left: 1.5rem;
+  margin-top: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 100;
+  position: absolute;
+}
+
+.imgB{
+  width: 110px;
+  height: 96px;
+  margin-left: -40px;
+  position: absolute;
+  z-index: 1;
+}
+.v-tex1{
+  width: 50%;
+  color: #fff;
+  margin-left: 1.5rem;
+  margin-top: 140px;
+
+}
+.v-tex2{
+  width: 50%;
+  color: #fff;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 20px;
+}
+.rr4{
+  font-size: 32px;
+}
+
+
+
+
+
+.projectlist{
+        width: 100%;
+        height: 600px;
+        /* background:rgb(85, 73, 221); */
+}
+.project{
+        width: 100vw;
+        height: 18vw;
+        background:#E8E5E9;
+        border-bottom: solid 2px #fff;
+}
+.ffd{
+        width: 16vw;
+        height: 16vw;
+        margin-left:  4vw;
+        margin-top: 1vw;
+        border-radius: 8vw;
+        background:rgb(255, 255, 255);
+        position: absolute;
+}
+.iimh{
+        width: 15vw;
+        height: 15vw;
+        margin-left: 0.5vw;
+        margin-top: 0.5vw;
+        border-radius: 12.5vw;
+}
+.projectdj{
+        height: 5vw;
+        width: 16vw;
+        font-size: 3.4vw;
+        /* background:rgb(190, 92, 92); */
+        margin-left: 22vw;
+        margin-top: 3vw;
+        position: absolute;
+}
+.projectText{
+        width: 32vw;
+        height: 5vw;
+        position: absolute;
+        margin-left: 38vw;
+        margin-top: 3vw;
+        font-size: 3.4vw;
+        /* background:rgb(43, 180, 66); */
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+}
+
+.projectTime{
+        position: absolute;
+        width: 40vw;
+        height: 4vw;
+        margin-left: 22vw;
+        margin-top: 10vw;
+        font-size: 2.8vw;
+        color: #939393;
+        /* background:rgb(75, 203, 235); */
+}
+.projectgain{
+        width: 24vw;
+        height: 8vw;
+        /* background:rgb(131, 75, 235); */
+        margin-top: 5vw;
+        text-align: right;
+        line-height: 8vw;
+        font-size: 4.8vw;
+        font-weight: bold;
+        position: absolute;
+        right: 4vw;
+}
+.remind{
+        width: 100%;
+        height: 40px;
+        color: #939393;
+        font-size: 12px;
+        text-align: center;
+        line-height: 40px;
+}

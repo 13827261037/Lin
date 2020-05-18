@@ -1,0 +1,12 @@
+
+
+<view class='container'>
+
+  <image src="{{imgUrl}}"></image>
+
+  <text class='time'>{{time}}s</text>
+
+</view>
+
+
+

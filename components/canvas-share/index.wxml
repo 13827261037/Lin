@@ -1,0 +1,22 @@
+
+
+<view  catchtouchmove="noneEnoughPeople"  class="share {{ visible ? 'show' : '' }}">
+
+        <canvas class="canvas-hide" canvas-id="share" style="width:{{canvasWidth*2}}rpx;height:{{canvasHeight*2}}rpx" />
+        <view bindtap='handleClose' class="content vvf" style="transform:scale({{responsiveScale}});-webkit-transform:scale({{responsiveScale}});">
+
+                <view class="vv92" catchtap='inbtn'>
+                        <image show-menu-by-longpress="1" class="canvas vve" src="{{imageFile}}"  />
+                        <view class="v2" style="margin-top: 3vw;">长按图片即可发给好友</view>
+                        <view class="v2" style="margin-top: 0vw;">87%的用户发到群里</view>
+                        <view class="vbut1" bindtap="handleSave">保存相册</view>
+                        <view class="vvs4" bindtap="vvs2">分享赚钱</view>
+                        <view class="vv33" wx:if="{{vo22_tf}}">
+                                <image class="img22" src="/pages/imgs/ac_c2.png"></image>
+                        </view>
+                        <image  class="img27" src="/pages/imgs/gb.png" bindtap='handleClose'></image>
+                        
+                </view>
+
+        </view>
+</view>
