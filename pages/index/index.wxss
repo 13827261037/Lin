@@ -16,6 +16,13 @@
   background:rgba(0,0,0,0.3);
   position:fixed; 
 }
+.vyimg4{
+        width: 8vw;
+        height: 8vw;
+        border-radius: 4vw;
+        margin-left: 0.5vw;
+        margin-top: 0.5vw;
+}
 .imgADD{
   background:rgba(0,0,0,0.3);
   height: 7vw;
