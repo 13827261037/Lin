@@ -304,11 +304,13 @@ Page({
         //支付事件
         srrrw: function (options) {
                 var that = this;
+                var merch_id = app.globalData.merch_id;
+                var modular_id = app.globalData.modular_id;
                 var total_fee = 0.01;  //支付金额，0.01元假数据
                 let openid = wx.getStorageSync("openid");
                 let yhjzt = wx.getStorageSync("yhjzt");
                 console.log(yhjzt);
-                if(yhjzt=='2'){
+                if(yhjzt=='1'){
                         wx.showToast({
                                 title: '您已报名，请到对应页面查看',
                                 icon: 'none',
@@ -319,7 +321,9 @@ Page({
                                 url: 'https://axure.xinice.com/index.php/index/index/WXpay',
                                 data: {
                                         total_fee: total_fee,
-                                openid: openid
+                                openid: openid,
+                                  merch_id: merch_id,
+                                  modular_id: modular_id
                                 },
                                 header: {
                                         'Content-Type': 'application/x-www-form-urlencoded'

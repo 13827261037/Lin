@@ -114,7 +114,7 @@
                 <!-- <view wx:if="{{xswdph}}" class="vm4" style="margin-top: 88vw;color: #FDE2BA;">{{wphdata}}</view> -->
                 
                 <view class="vy4" style="margin-top: 16vw;">
-                        <image  class="vyimg4" src="{{phbdata[3].wxhimg}}" ></image> 
+                        <image  class="vyimg4" src="{{phbdata[3].wxhimg}}"></image> 
                 </view>
                 <view class="vy4" style="margin-top: 26vw;">
                         <image  class="vyimg4" src="{{phbdata[4].wxhimg}}" ></image> 

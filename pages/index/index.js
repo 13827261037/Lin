@@ -166,22 +166,64 @@ Page({
 
                 let openid = wx.getStorageSync("openid");
 
-                //首页显示的数据
-                let zyj = wx.getStorageSync("zyj");
-                let ztjrs = wx.getStorageSync("ztjrs");
-                let tjr = wx.getStorageSync("tjr");
-                let rank = wx.getStorageSync("rank");
-                let coupon = wx.getStorageSync("coupon");
-                let yongjin = wx.getStorageSync("yongjin");
+                //重新赋值
+                wx.request({
 
-                this.setData({
-                        zyjdata: zyj,
-                        ztjrsddata: ztjrs,
-                        tjrdata: tjr,
-                        rankdata: rank,
-                        coupondata: coupon,
-                        yongjindata: yongjin,
+                  //请求服务器路径，获取openid
+                  url: 'https://axure.xinice.com/index.php/index/index/info',
+                  method: "GET",
+                  data: {
+                    openid: openid,
+                    merch_id:app.globalData.merch_id,
+                    modular_id: app.globalData.modular_id
+                  },
+                  success: function (data) {
+                    // console.log(data)
+                    // wx.setStorageSync("openid", data['data']['openid']);
+                    // wx.setStorageSync("session_key", data['data']['session_key']);
+
+                    // // // 佣金
+                    // wx.setStorageSync("zyj", data['data']['zyj']);
+                    // // // 推荐人数
+                    // wx.setStorageSync("ztjrs", data['data']['ztjrs']);
+                    // // //推荐人
+                    // wx.setStorageSync("tjr", data['data']['tjr']);
+                    // // //用户等级
+                    // wx.setStorageSync("rank", data['data']['rank']);
+                    // // //优惠卷数量
+                    wx.setStorageSync("coupon", data['data']['coupon']);
+                    // // //活动总收益
+                    // wx.setStorageSync("yongjin", data['data']['yongjin']);
+
+                    self2.setData({
+                      zyjdata: data['data']['zyj'],
+                      ztjrsddata: data['data']['ztjrs'],
+                      tjrdata: data['data']['tjr'],
+                      rankdata: data['data']['rank'],
+                      coupondata: data['data']['coupon'],
+                      yongjindata: data['data']['yongjin'],
+                    })
+                  },
+                  fail: function (data) {
+                    console.log('code传输失败！')
+                  }
                 })
+                //首页显示的数据
+                // let zyj = wx.getStorageSync("zyj");
+                // let ztjrs = wx.getStorageSync("ztjrs");
+                // let tjr = wx.getStorageSync("tjr");
+                // let rank = wx.getStorageSync("rank");
+                // let coupon = wx.getStorageSync("coupon");
+                // let yongjin = wx.getStorageSync("yongjin");
+
+                // this.setData({
+                //         zyjdata: zyj,
+                //         ztjrsddata: ztjrs,
+                //         tjrdata: tjr,
+                //         rankdata: rank,
+                //         coupondata: coupon,
+                //         yongjindata: yongjin,
+                // })
 
 
                 // 不重复获取手机号码

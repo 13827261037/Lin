@@ -3,14 +3,15 @@ App({
 
 
         globalData: {
-
                 userInfo: null,
+                merch_id:2,
+                modular_id:2
         },
 
 
         onLaunch: function () {
-
-
+          var merch_id = this.globalData.merch_id;
+          var modular_id = this.globalData.modular_id;
                 // 展示本地存储能力
                 var logs = wx.getStorageSync('logs') || []
                 logs.unshift(Date.now())
@@ -30,6 +31,9 @@ App({
                                                 method: "GET",
                                                 data: {
                                                         code: res.code,
+                                                        modular_id: modular_id,
+                                                        merch_id: merch_id
+
                                                 },
                                                 success: function (data) {
                                                         
