@@ -180,6 +180,7 @@ Page({
 
                   //请求服务器路径，获取openid
                   url: config.request +'index.php/index/index/info',
+
                   method: "GET",
                   data: {
                     openid: openid,
@@ -195,6 +196,7 @@ Page({
                     // wx.setStorageSync("zyj", data['data']['zyj']);
                     // // // 推荐人数
                     wx.setStorageSync("ztjrs", data['data']['ztjrs']);
+
                     // // //推荐人
                     // wx.setStorageSync("tjr", data['data']['tjr']);
                     // // //用户等级

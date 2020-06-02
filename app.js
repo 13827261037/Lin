@@ -1,7 +1,6 @@
 import config from 'utils/config'
 App({
 
-
   globalData: {
     userInfo: null,
     openid:'',
