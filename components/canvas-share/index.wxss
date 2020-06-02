@@ -1,12 +1,18 @@
 
-
+.gfg{
+  position: fixed;
+  width: 60vw;
+  height: 60vw;
+  left: -6vw;
+  top: -3vw;
+}
 .share {
         position: fixed;
         top: 0;
         left: 0;
         min-height: 100vh;
         width: 100vw;
-        background: rgba(61, 61, 61, 0.8);
+        background: rgba(61, 61, 61, 0.9);
         /* background:rgb(255, 255, 255); */
         visibility: hidden;
         opacity: 0;
@@ -140,7 +146,7 @@ background: #fff;
         /* position: absolute;  */
         /* left: 46vw;
         bottom: 20vw; */
-        margin-top: 10vw;
+        margin-top: 15vw;
         margin-left: 38vw;
 }
 .vvf{

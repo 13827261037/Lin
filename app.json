@@ -13,7 +13,9 @@
     "pages/recommend/recommend",
     "pages/recommend2/recommend2",
     "pages/logs/logs",
-    "pages/activity_copy/activity_copy"
+    "pages/activity_copy/activity_copy",
+    "pages/activity_coupon/activity_coupon",
+    "pages/offlinepay/offlinepay"
   ],
   "window": {
     "navigationStyle": "custom",

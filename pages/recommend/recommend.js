@@ -1,3 +1,7 @@
+import config from '../../utils/config';
+//获取应用实例
+const app = getApp()
+
 Page({
 
   /**
@@ -134,7 +138,8 @@ Page({
 // 上拉刷新具体方法
 function getproinfo(pagesize, p, mythis) {
 
-  let openid = wx.getStorageSync("openid");
+  // let openid = wx.getStorageSync("openid");
+  var openid = app.globalData.openid;
 
   wx.request({
     url: 'https://axure.xinice.com/index.php/index/index/recommend',

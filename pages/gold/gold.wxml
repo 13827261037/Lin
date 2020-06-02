@@ -21,7 +21,7 @@
                 <view class="vvg-v1">收益记录</view>
                 <view class="vvg-v2">
                         <view class="vvv2-v1">总收益</view>
-                        <view class="vvv2-v2">￥ {{zyjdata}}</view>
+                        <view class="vvv2-v2">￥ {{zyjdata?zyjdata:0}}</view>
                 </view>
         </view> 
 
@@ -29,7 +29,7 @@
                 <view class="vvg-v1">提现记录</view>
                 <view class="vvg-v2">
                         <view class="vvv2-v1">总提现</view>
-                        <view class="vvv2-v2">￥ {{ztxdata}}</view>
+                        <view class="vvv2-v2">￥ {{ztxdata?ztxdata:0}}</view>
                  </view>
         </view>
 

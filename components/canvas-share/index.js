@@ -187,7 +187,12 @@ Component({
                         let userInfo2 = wx.getStorageSync("userInfo2");
                         //输入的内容
                         let a2 = wx.getStorageSync("a2");
-                        var yy = "“" + a2 + "”";
+                        // var yy = "“" + a2 + "”";
+                        //新增
+                        var coup_money = wx.getStorageSync("coup_money");
+                        var merchname = wx.getStorageSync("merchname");
+                        var coupon_individual = wx.getStorageSync("coupon_individual");
+                  
                         // 等待框
                         wx.showLoading()
 
@@ -196,7 +201,8 @@ Component({
                         const { avatarUrl, nickName } = userInfo2
                         const avatarUrlPromise = getImageInfo(avatarUrl)
                         const avatarPromise = getImageInfo(imgUrls2)
-                        const backgroundPromise = getImageInfo('https://axure.xinice.com/static/projects/HXBN/imgs/fxd720.png')
+                        // const backgroundPromise = getImageInfo('https://axure.xinice.com/static/projects/HXBN/imgs/fxd720.png')
+                         const backgroundPromise = getImageInfo('https://axure.xinice.com/static/projects/HXBN/imgs/pg37.jpg')
 
                         Promise.all([avatarPromise, backgroundPromise, avatarUrlPromise])
                                 .then(([avatar, background, avatarUrl]) => {
@@ -214,76 +220,115 @@ Component({
                                         canvasW,
                                         canvasH,
                                 )
-                               
                                 const radius = rpx2px(100)
+ // 2020 05 28 添加
+                                  // 绘制二维码
+                                  ctx.drawImage(
+                                    avatar.path,
+                                    radius * 4.1,
+                                    radius * 8.8,
+                                    radius * 2.4,
+                                    radius * 2.4,
+                                  )
 
-                                // 绘制二维码
-                                ctx.drawImage(
-                                        avatar.path,
-                                        radius * 11.6,
-                                        radius * 11.8,
-                                        radius * 2.4,
-                                        radius * 2.4,
-                                )
+                                  //金额
+                                  ctx.setFontSize(120)
+                                  ctx.textAlign = "center";
+                                  ctx.setFillStyle('#F22D4D')
+                                  ctx.fillText(
+                                          coup_money,
+                                          radius * 7.3,
+                                          radius * 5.2,
+                                  )
+                                  
 
+                                  //商户名称
+                                  ctx.setFontSize(45)
+                                  ctx.textAlign = "center";
+                                  ctx.setFillStyle('#FFFFFF')
+                                  ctx.fillText(
+                                    merchname,
+                                    radius * 7.3,
+                                    radius * 1.6,
+                                  )
+
+                                  //
+                                  //限制多少张
+                                  ctx.setFontSize(45)
+                                  ctx.textAlign = "center";
+                                  ctx.setFillStyle('#FFFFFF')
+                                  ctx.fillText(
+                                    '仅'+coupon_individual+'张',
+                                    radius * 9,
+                                    radius * 9.6,
+                                  )
+    // 2020 05 28 注释
+                                // // 绘制二维码
+                                // ctx.drawImage(
+                                //         avatar.path,
+                                //         radius * 11.6,
+                                //         radius * 11.8,
+                                //         radius * 2.4,
+                                //         radius * 2.4,
+                                // )
                                 // 广告
-                                ctx.setFontSize(40)
-                                ctx.setFillStyle('#ffffff')
-                                ctx.fillText(
-                                        '我为',
-                                        radius * 0.8,
-                                        radius * 13.6,
-                                )
-                                ctx.setFontSize(40)
-                                ctx.setFillStyle('#FFE2BA')
-                                ctx.fillText(
-                                        '浩信百年',
-                                        radius * 2.4,
-                                        radius * 13.6,
-                                )
-                                ctx.setFontSize(40)
-                                ctx.setFillStyle('#ffffff')
-                                ctx.fillText(
-                                        '代言~',
-                                        radius * 5.4,
-                                        radius * 13.6,
-                                )
+                                // ctx.setFontSize(40)
+                                // ctx.setFillStyle('#ffffff')
+                                // ctx.fillText(
+                                //         '我为',
+                                //         radius * 0.8,
+                                //         radius * 13.6,
+                                // )
+                                // ctx.setFontSize(40)
+                                // ctx.setFillStyle('#FFE2BA')
+                                // ctx.fillText(
+                                //         '浩信百年',
+                                //         radius * 2.4,
+                                //         radius * 13.6,
+                                // )
+                                // ctx.setFontSize(40)
+                                // ctx.setFillStyle('#ffffff')
+                                // ctx.fillText(
+                                //         '代言~',
+                                //         radius * 5.4,
+                                //         radius * 13.6,
+                                // )
 
-                                // 绘制头像
-                                ctx.drawImage(
-                                        avatarUrl.path,
-                                        radius * 0.7,
-                                        radius * 9,
-                                        radius * 1.8,
-                                        radius * 1.8,
-                                )
+                                // // 绘制头像
+                                // ctx.drawImage(
+                                //         avatarUrl.path,
+                                //         radius * 0.7,
+                                //         radius * 9,
+                                //         radius * 1.8,
+                                //         radius * 1.8,
+                                // )
                               
                                 // 输入的内容
-                                ctx.setFontSize(24)
-                                ctx.setFillStyle('#FFE2BA')
-                                ctx.fillText(
-                                        yy,
-                                        radius * 0.4,
-                                        radius * 11.5,
-                                )
+                                // ctx.setFontSize(24)
+                                // ctx.setFillStyle('#FFE2BA')
+                                // ctx.fillText(
+                                //         yy,
+                                //         radius * 0.4,
+                                //         radius * 11.5,
+                                // )
 
-                                //名称前横杠
-                                ctx.setFontSize(26)
-                                ctx.setFillStyle('#ffffff')
-                                ctx.fillText(
-                                        "——",
-                                        radius * 0.8,
-                                        radius * 12.2,
-                                )
+                                // //名称前横杠
+                                // ctx.setFontSize(26)
+                                // ctx.setFillStyle('#ffffff')
+                                // ctx.fillText(
+                                //         "——",
+                                //         radius * 0.8,
+                                //         radius * 12.2,
+                                // )
 
-                                //名字
-                                ctx.setFontSize(22)
-                                ctx.setFillStyle('#ffffff')
-                                ctx.fillText(
-                                        nickName,
-                                        radius * 2,
-                                        radius * 12.2,
-                                )
+                                // //名字
+                                // ctx.setFontSize(22)
+                                // ctx.setFillStyle('#ffffff')
+                                // ctx.fillText(
+                                //         nickName,
+                                //         radius * 2,
+                                //         radius * 12.2,
+                                // )
                                 
 
                                 // // 绘制头像

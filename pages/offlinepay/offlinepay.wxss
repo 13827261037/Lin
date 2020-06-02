@@ -1,0 +1,82 @@
+/* pages/offlinepay/offlinepay.wxss */
+.container{
+  background-color: rgb(64,66,85);
+}
+.top{
+  width: 100vw;
+  height: 45vw;
+  text-align: center;
+  /* background-color: rgb(245, 245, 245); */
+}
+
+.top_text{
+  margin-top: 10vw;
+  line-height: 37vw;
+  font-weight: bold;
+}
+.body{
+  width: 100vw;
+  height: auto;
+  margin-top: -7vw;
+  background-color: rgb(245, 245, 245);
+  border-radius: 7vw 7vw 7vw 7vw;
+  margin-bottom: 20vw;
+  /* background-color: red; */
+}
+.body_img{
+  width: 18vw;
+  height: 8vw;
+  margin-top: 10vw;
+  margin-left: 40vw;
+}
+.weui-input{
+  font-size: 4vw;
+  font-weight: 700;
+}
+.page-section{
+  width: 52vw;
+  text-align: center;
+  margin-left: 23vw;
+  margin-top: 10vw;
+  border-bottom: 1.1vw solid rgb(64,66,85);
+
+}
+.fh{
+  font-size: 5vw;
+  font-weight: 2vw;
+}
+
+
+
+.yhq{
+  width: 90vw;
+  height: 21vw;
+  margin-top: 10vw;
+  margin-left: 5vw;
+  background-color: rgb(64,66,85);
+  border-radius: 3vw 3vw 3vw 3vw;
+}
+.anniu{
+  line-height: 21vw;
+  margin-left: 10vw;
+}
+
+.pay{
+  width: 10vw;
+  height: 11vw;
+  background-color: #FD7782;
+  border-radius: 3vw 3vw 3vw 3vw;
+  text-align: center;
+  display: block;
+  margin: 0px auto;
+  color: aliceblue;
+  margin-top: 5vw;
+  margin-bottom: 10vw;
+}
+.xs{
+  /* margin-left: 40vw; */
+  text-align: center;
+  margin-top: 10vw;
+  font-size: 7vw;
+  color: #FD7782;
+}

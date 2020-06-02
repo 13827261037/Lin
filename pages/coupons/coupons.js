@@ -1,4 +1,6 @@
-
+import config from '../../utils/config';
+//获取应用实例
+const app = getApp()
 
 Page({
 
@@ -22,8 +24,9 @@ Page({
 
                 var self2 = this;
 
-                let openid = wx.getStorageSync("openid");
+                // let openid = wx.getStorageSync("openid");
                 let coupon = wx.getStorageSync("coupon");
+                var openid = app.globalData.openid;
 
                 self2.setData({
                         coupondata: coupon,
@@ -31,9 +34,10 @@ Page({
 
                 //优惠券显示
                 wx.request({
-                        url: 'https://axure.xinice.com/index.php/index/index/couponxs',
+                        url: config.request +'/index.php/index/index/couponxs',
                         data: {
                                 openid: openid,
+                                modular_id: app.globalData.modular_id
                         },
                         method: 'GET',
                         header: {
@@ -46,7 +50,10 @@ Page({
                                                 yhjxs2: true,
                                         })
                                 }
-                                // console.log(res.data);
+                          self2.setData({
+                            coupondata: res.data.sum,
+                            couponxslist: res.data.couponxs
+                          })
 
                         },
                         fail: function (res) {

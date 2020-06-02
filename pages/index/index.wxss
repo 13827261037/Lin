@@ -1000,3 +1000,21 @@
  margin-left: 29.5vw;
 
 }
+.imgVV1{
+    width: 80vw;
+    height: 13vw;
+    float: left;
+    position: absolute;
+    margin-top: 103vw;
+    background-color: #FD5F5E;
+    /* padding:10vw 10vw; */
+    padding: 8vw 30vw;
+
+}
+.imgVV2{
+  width: 50vw;
+  height: 16vw;
+  margin-left: -25vw;
+  margin-top: -8vw;
+
+}

@@ -1,0 +1,49 @@
+<!--pages/offlinepay/offlinepay.wxml-->
+<view class='container'>
+        <view class="top">
+        <!-- <view class="zz5 top_text" bindtap="srrrw" >￥ 200 立即支付</view> -->
+          <text class="top_text" bindtap="pay">浩信百年 · 极致体验</text>
+          
+        </view>
+        
+        <view class="body">
+            <image src="../imgs/payline.png" class="body_img"></image>
+
+
+              <view class="page-section">
+                   <text class="fh"></text> <input class="weui-input" type="digit" placeholder="输入金额" bindinput="getMoney" />
+              </view>
+
+              <view class="page-body">
+                <view class="weui-cells weui-cells_after-title">
+                  <radio-group bindchange="radioChange">
+                    <label class="weui-cell weui-check__label" wx:for="{{coupon_list}}" wx:key="index">
+
+                      <view class="weui-cell__hd yhq">
+                          <radio class="anniu" value="{{index}}" wx:if= "{{index < 1 }}"  checked="true"/>
+                          <radio class="anniu" value="{{index}}" wx:else/>
+                          <view class="weui-cell__bd">{{item.name}}</view>
+                      </view>
+                      
+                    </label>
+                  </radio-group>
+                </view>
+              </view>
+
+
+            <view class="xs" wx:if="{{!getMoney}}">￥0</view>
+            <view class="xs"  wx:else >￥{{we.toFixed(getMoney - coupon_list[coupon_index].coupon_money)}}</view>
+
+
+            <button bindtap="verification" class="pay">立即支付</button>
+        </view>
+</view>
+
+<wxs module="we">
+ var toFixed = function (value) {
+ return value.toFixed(2);
+}
+module.exports = {
+  toFixed :toFixed
+}
+</wxs>

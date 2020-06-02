@@ -1,6 +1,5 @@
 
 <canvas-share bindclose="close" userInfo="{{userInfo}}" visible="{{visible}}" />
-<canvas-shareww bindclose="close" userInfo="{{userInfo}}" visible="{{visibleww}}" />
 
 <view class='container'>
   
@@ -23,7 +22,11 @@
         <image class="imgA3" src="{{imgUrl3}}" ></image>
         <text class="tx666">666</text><text class="txyuan">元</text>
         <image class="imgA4" src="{{imgUrl4}}" ></image>
-        <image class="imgVV" src="/pages/imgs/fxnn.png" animation='{{animationMiddleHeaderItem}}'></image>
+        <!-- <image class="imgVV" src="/pages/imgs/fxnn.png" animation='{{animationMiddleHeaderItem}}'></image> -->
+        <button class="imgVV1" open-type="share">
+        <image class="imgVV2" src="/pages/imgs/fxnn.png" animation='{{animationMiddleHeaderItem}}'></image> 
+         <!-- <view>立即分享 </view> -->
+        </button>
         <image class="imgA5" src="{{imgUrl5}}" ></image>
 
 
@@ -56,8 +59,8 @@
         <view class="ttv3">介绍</view>
         <image wx:if="{{hasUserInfo}}" class="h-img2" src='{{userInfo.avatarUrl}}'></image>
         <view wx:if="{{hasUserInfo}}" class="h-vte">{{userInfo.nickName}}</view>
-        <view class="tex2" bindtap="goldBen"><nne style="font-size: 4.8vw;">￥ </nne> <nne style="font-weight:Bold;font-size: 6.9vw;">{{zyjdata}}</nne> <nne style="font-size:4.8vw;"> 元</nne></view>
-        <view class="tex3"  bindtap="recommendBen"> <nne style="font-weight:Bold;font-size: 6.9vw;">{{ztjrsddata}}</nne> <nne style="font-size: 4.8vw;"> 人</nne></view>
+        <view class="tex2" bindtap="goldBen"><nne style="font-size: 4.8vw;">￥ </nne> <nne style="font-weight:Bold;font-size: 6.9vw;">{{zyjdata ? zyjdata : 0}}</nne> <nne style="font-size:4.8vw;"> 元</nne></view>
+        <view class="tex3"  bindtap="recommendBen"> <nne style="font-weight:Bold;font-size: 6.9vw;">{{ztjrsddata ? ztjrsddata : 0}}</nne> <nne style="font-size: 4.8vw;"> 人</nne></view>
         <view wx:if="{{hasUserInfo}}" class="tex4">推荐代言人：{{tjrdata}}</view>
         <!-- <view wx:if="{{hasUserInfo}}" class="vvvu"></view>
         <view wx:if="{{hasUserInfo}}" class="vvvu-2">{{rankdata}}</view> -->
@@ -114,7 +117,7 @@
                 <!-- <view wx:if="{{xswdph}}" class="vm4" style="margin-top: 88vw;color: #FDE2BA;">{{wphdata}}</view> -->
                 
                 <view class="vy4" style="margin-top: 16vw;">
-                        <image  class="vyimg4" src="{{phbdata[3].wxhimg}}" ></image> 
+                        <image  class="vyimg4" src="{{phbdata[3].wxhimg}}"></image> 
                 </view>
                 <view class="vy4" style="margin-top: 26vw;">
                         <image  class="vyimg4" src="{{phbdata[4].wxhimg}}" ></image> 
@@ -171,14 +174,20 @@
 
         <view class="vw77">— 活动进行时 —</view>
         <view class="vw78">把活动代言到圈里，更容易获利哦~</view>
-        <image class="zz36" src="/pages/imgs/hdA.jpg" bindtap="activityBen"></image>
+        <!-- <image class="zz36" src="/pages/imgs/hdA.jpg" bindtap="activityBen"></image>
         <view class="zz37">报名</view>
         <view class="zz38">公益活动^免费拍婚纱照^火热报名中...</view>
-        <view class="zz39">代言收益：￥{{yongjindata}}元</view>
+        <view class="zz39">代言收益：￥{{yongjindata}}元</view> -->
+        <block wx:for="{{activity}}" wx:key="index">
+          <image class="zz36" src="/pages/imgs/hdA.jpg" bindtap="activityBen" style="margin-top:2vw" wx:if="{{index < 1}}" data-id="{{item.id}}"></image>
+          <image class="zz36" src="/pages/imgs/hdA.jpg" bindtap="activityBen" style="margin-top:17vw" wx:if="{{index >= 1}}" data-id="{{item.id}}"></image>
+          <view class="zz37">报名</view>
+          <view class="zz38">{{item.aname}}</view>
+          <view class="zz39">代言收益：￥{{yongjindata}}元</view>
+         </block>
 
-
-        <view class="zz">技术支持：小鹿微信转介绍工具</view>
-        <!-- <navigator url="/pages/activity_copy/activity_copy">zzzz</navigator> -->
+        <view class="zz">技术支持：超级微信营销</view>
+        <!-- <navigator url="/pages/activity_copy/activity_copy?id=5">zzzz</navigator> -->
         <view class="zz"></view>
 
 

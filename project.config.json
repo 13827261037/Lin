@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": false,
 		"postcss": true,
@@ -21,7 +21,9 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
@@ -58,10 +60,31 @@
 			"current": -1,
 			"list": [
 				{
+					"id": 1,
+					"name": "pages/activity/activity",
+					"pathName": "pages/activity/activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/activity_coupon/activity_coupon",
+					"pathName": "pages/activity_coupon/activity_coupon",
+					"query": "activity_id=6",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "pages/activity_copy/activity_copy",
-					"pathName": "pages/activity_copy/activity_copy",
-					"query": "activity_id = 1",
+					"name": "pages/offlinepay/offlinepay",
+					"pathName": "pages/offlinepay/offlinepay",
+					"query": "id=5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
 					"scene": null
 				}
 			]

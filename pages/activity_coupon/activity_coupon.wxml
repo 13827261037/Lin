@@ -1,0 +1,188 @@
+<!--pages/activity_ coupon/activity_coupon.wxml-->
+<!-- 优惠券活动 -->
+<!-- <text>pages/activity_ coupon/activity_coupon.wxml</text> -->
+<view   class='container'>
+<image src="../imgs/fanhui.png" class="back" bindtap="back"></image>
+<!-- 表头 -->
+    <view class="top">
+    <image src="../imgs/coup1.jpg" class="top_img" ></image>
+    <image src="../imgs/coup2.png" class="top_img2" ></image>
+    </view>
+
+<!-- 优惠券 -->
+    <view class="coup">
+      <image src="../imgs/coup3.png" class="top_img3"></image>
+        <view class="money">
+          <text class="money1">￥</text>
+          <text class="money2">{{activity_info.coupon_money}}</text>
+          <text class="money1"> RMB</text>
+        </view>
+        <view class="xz1">限{{activity_info.coupon_individual}}张</view>
+        <view class="xz2">{{activity_info.coupon_info1}}</view>
+        <view class="xz3">已抢{{activity_info.sum_bai}}%</view>
+        <view class="xz4">{{activity_info.coupon_info2}}</view>
+    </view>
+    <!-- 商户 -->
+      <navigator url="/pages/index/index">
+          <view class="merch">
+          
+              <image src="{{url}}{{activity_info.image}}" class="merch_img"></image>
+              
+              <view class="merch_top_1">
+                <view class="merch_title"> {{activity_info.shname}}<text style="font-size:3.5vw;font-weight: 500"> · {{activity_info.industry}}</text></view>
+                <image src="../imgs/coup4.png" class="merch_fx"></image>
+              </view>
+              <view class="merch_top_2">
+                <view class="merch_gz">{{activity_info.gz + 22046}} 关注 </view>
+                <image src="../imgs/coup5.png" class="merch_xx"></image>
+                <view class="merch_pf">5.5 </view>
+              </view>
+              <view class="zza">
+                <image src="../imgs/coup6.png" class="merch_dw"></image>
+                <view class="merch_dz">{{activity_info.address}} </view>
+              </view>
+
+          </view>
+      </navigator>
+    <!-- 报名 -->
+    <view class="baoming">
+      <view class="baoming_lq">已有<text class="baoming_lqm">{{activity_info.sum}}</text>人领取</view>
+      <view class="baoming_ll"><text class="baoming_llm">{{activity_info.select}}</text>次浏览</view>
+      <view class="baoming_list">
+          <block wx:for="{{msgList}}" wx:key="key">
+            <image class="baoming_img" src="{{item.wxhimg ? item.wxhimg : '../imgs/coup1.jpg'}}"></image>
+            <view class="baoming_name">{{item.wxname ? item.wxname : '无'}}</view>
+          </block> 
+      </view>
+    </view>
+
+  <!-- 广告 -->
+  <view class="ad">
+      <image src="../imgs/coup7.png" class="ad_img1"></image>
+      <image src="../imgs/coup8.png" class="ad_img2"></image>
+      <view class="ad_name1">推送好友 或分享到圈里</view>
+      <view class="ad_name2"> 好友进入 你已成功推荐好友</view>
+      <view class="ad_name3">好友下单，最高可得666元</view>
+      <view class="ad_name4">新用户在{{activity_info.shname}}下单任何商品（含线下）均可~</view>
+  </view>
+
+
+<!-- 排行榜 -->
+<view class="phb" hidden="true">
+  <image src="../imgs/coup10.png" class="phb_img"></image>
+  <view>
+  
+      <image src="{{bmlist[1].wxhimg ? bmlist[1].wxhimg : '../imgs/8665.png'}}" class="phb_img4 phb_img1"></image>
+      <image src="{{bmlist[0].wxhimg ? bmlist[0].wxhimg : '../imgs/8665.png'}}" class="phb_img4 phb_img2"></image>
+      <!-- <image src="../imgs/8665.png" class="phb_img4 phb_img2"></image> -->
+      <image src="{{bmlist[2].wxhimg ? bmlist[2].wxhimg : '../imgs/8665.png'}}" class="phb_img4 phb_img3"></image>
+
+      <view class="phb_name">
+          <view class="phb_name1 phb_name2">{{bmlist[1].wxname ? bmlist[1].wxname : '加*油'}}</view>
+          <view class="phb_name1">{{bmlist[0].wxname ? bmlist[0].wxname : '加*油'}}</view>
+          <view class="phb_name1">{{bmlist[2].wxname ? bmlist[2].wxname : '加*油'}}</view>
+      </view>
+      <view class="phb_money">
+          <view class="phb_money1 phb_money2">{{bmlist[1].brokerage ? bmlist[1].brokerage : '0'}}元</view>
+          <view class="phb_money1">{{bmlist[0].brokerage ? bmlist[0].brokerage : '0'}}元</view>
+          <view class="phb_money1">{{bmlist[2].brokerage ? bmlist[2].brokerage : '0'}}元</view>
+      </view>
+
+      <view>
+          <image src="../imgs/ac_B.png" class="phb_img5 phb_img6"></image>
+          <image src="../imgs/ac_A.png" class="phb_img5 phb_img7"></image>
+          <image src="../imgs/ac_C.png" class="phb_img5 phb_img8"></image>
+      </view>
+
+
+  </view>
+  <view class="phb_sel" bindtap="phb_show" data-phbshow="{{phb_show}}">查看排行榜</view>
+
+
+  <!-- <view class='title'>表格模板</view> -->
+      <view class="tableView"  wx:if="{{phb_show}}">
+        <view class="table_header">
+          <view class="th th1">排名</view>
+          <view class="th th3">用户</view>
+          <view class="th th2">邀请人数</view>
+          <view class="th th2">累积收益</view>
+        </view>
+        <!-- <block> 并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。 -->
+        <block wx:for="{{ bmlist }}" wx:for-item="work" wx:key="index" wx:if="{{index >= 3}}">
+          <view class="table_cell">
+            <view class="td td1">{{index + 1}}</view>
+            <view class="td td3">
+            <image src="{{work.wxhimg}}" class="table_img"></image>
+              {{work.wxname ? work.wxname : '*'}}
+            </view>
+            <view class="td td2">{{work.tppnb}}</view>
+            <view class="td td2">{{work.brokerage}}</view>
+          </view>
+        </block>
+
+      </view>
+
+</view>
+
+<view class="jszc">
+    技术支持：超级微信营销
+</view>
+
+
+<view class="foot">
+  <view class="foot_z" bindtap="show" wx:if="{{userInfo}}">成为{{activity_info.shname}}代言人</view>
+  <view class="foot_z" wx:else > 请先授权登陆</view>
+  <view class="foot_k">
+  <view wx:if="{{is_lingqu == 'YES'}}" class="lqz"> 已领取</view>
+  <view wx:else >
+    <text class="lq" wx:if="{{hasUserInfo && modalstatus}}" bindtap="lqcoupon">领取优惠券</text>
+    <button wx:if="{{!userInfo}}" class="lqn" style="width: 90vw;" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登陆</button>
+    <button  wx:if="{{userInfo && !modalstatus}}" class="lqn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">领取优惠券</button>
+  </view>
+  <image src="../imgs/coup12.png" class="font_jb1"></image>
+  <image src="../imgs/coup13.png" class="font_jb2"></image>
+  
+   </view>
+</view>
+
+<!-- 分享海报 -->
+<canvas-share bindclose="close" userInfo="{{userInfo}}" visible="{{visible}}" />
+
+
+<!-- 成功后引导页 -->
+<view class="tk_body" wx:if="{{ycyindao}}">
+    <view class="tk_guang">
+        <image src="../imgs/taiyang.png" class="tk_g_img"></image>
+        <image src="../imgs/hg.png" class="tk_h_img"></image>
+    </view>
+    
+    <view class="t_x_v">
+          <view class="t_x_title">恭喜您领券成功</view>
+          <view class="t_x_body tx_body1">感谢您选择{{activity_info.shname}}，</view>
+          <view class="t_x_body tx_body2">请在首页查看优惠券信息，</view>
+          <view class="t_x_body tx_body3">我们将会在48小时内联系您。</view>
+    </view>
+
+    <view>
+      <image src="../imgs/nn3.png" class="nn_img nn_img1"> </image>
+
+      <image src="../imgs/nn2.png" class="nn_img nn_img2"> </image>
+      <view class="nn_c1">
+        <image src="../imgs/hdtbxx.png" class="nn_c"> </image>
+        <view class="nn_c2">有偿介绍客户哦~</view>
+      </view>
+      
+    </view>
+
+      <view class="tk_an">
+        <view class="tk_an1" bindtap="show">把现金券分享个好友</view>
+        <view class="tk_an2" bindtap="tohome">先去首页逛逛</view>
+      </view>
+      <image src="../imgs/guanbi.png" class="xx" bindtap="ycyindao"></image>
+
+</view>
+<!--     
+    <view class="zzz">
+      
+    </view> -->
+</view>

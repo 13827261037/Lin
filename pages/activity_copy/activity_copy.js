@@ -1,5 +1,5 @@
 
-
+import config from '../../utils/config'
 //获取应用实例
 const app = getApp()
 
@@ -8,7 +8,7 @@ Page({
 
 
   data: {
-
+    url: config.request,
     viewb: 100,
     cLtf1: true,
     cLtf2: true,
@@ -32,8 +32,6 @@ Page({
 
     vo2_tf: false,
     carouselList: [
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589630649536&di=f1028ee40d421958da0334f3596fb2f0&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F14%2F75%2F01300000164186121366756803686.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589630649536&di=0ead261f42fe8ef397c8650cb67f96c0&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F64%2F76%2F20300001349415131407760417677.jpg',
       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589630649536&di=f1028ee40d421958da0334f3596fb2f0&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F14%2F75%2F01300000164186121366756803686.jpg',
     ],
     label: '免费',
@@ -161,7 +159,8 @@ Page({
 
 
   //展示活动页
-  show: function () { this.setData({ visible: true, showModalStatus: false, }) },
+  show: function () { 
+    this.setData({ visible: true, showModalStatus: false, }) },
   close: function () { this.setData({ visible: false }) },
 
 
@@ -324,9 +323,11 @@ Page({
   srrrw: function (options) {
     var that = this;
     var total_fee = 0.01;  //支付金额，0.01元假数据
+    var merch_id = app.globalData.merch_id;
+    var modular_id = app.globalData.modular_id;
     let openid = wx.getStorageSync("openid");
     let yhjzt = wx.getStorageSync("yhjzt");
-    console.log(yhjzt);
+    // console.log(yhjzt);
     if (yhjzt == '1') {
       wx.showToast({
         title: '您已报名，请到对应页面查看',
@@ -335,10 +336,12 @@ Page({
       });
     } else {
       wx.request({
-        url: 'https://axure.xinice.com/index.php/index/index/WXpay',
+        url: config.request +'index.php/index/index/WXpay',
         data: {
           total_fee: total_fee,
-          openid: openid
+          openid: openid,
+          merch_id: merch_id,
+          modular_id: modular_id
         },
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -446,7 +449,7 @@ Page({
       //传到数据库，填充用户信息（名称+头像）
       wx.request({
 
-        url: 'https://axure.xinice.com/index.php/index/index/nameImg',
+        url: config.request +'index.php/index/index/nameImg',
 
         data: {
           name: e.detail.userInfo.nickName,
@@ -501,12 +504,13 @@ Page({
           //同意授权
           wx.request({
             method: "GET",
-            url: 'https://axure.xinice.com/index.php/index/index/userMobile',
+            url: config.request +'index.php/index/index/userMobile',
             data: {
               openid: openid,
               encrypdata: ency,
               ivdata: iv,
               sessionkey: sessionk,
+              modular_id: app.globalData.modular_id
             },
             header: {
               'content-type': 'application/json'
@@ -537,7 +541,7 @@ Page({
   newestsss: function () {
     var self2 = this;
     wx.request({
-      url: 'https://axure.xinice.com/index.php/index/index/newest',
+      url: config.request +'index.php/index/index/newest',
       data: {
       },
       method: 'GET',
@@ -572,14 +576,17 @@ Page({
     }
   },
   onLoad: function (options) {
-
+    var id = options.id;
     var self2 = this;
-
+    self2.activity_info(id);//请求轮播图
     //获取手机高度
     wx.getSystemInfo({
       success: res => {
         // console.log(res)
-        this.setData({ screenHeight: res.screenHeight })
+        this.setData({ 
+          screenHeight: res.screenHeight,
+          activity_id:id 
+          })
       }
     })
     //延时执行
@@ -600,7 +607,7 @@ Page({
         let scene = decodeURIComponent(options.scene);
 
         wx.request({
-          url: 'https://axure.xinice.com/index.php/index/index/upperLayer',
+          url: config.request +'index.php/index/index/upperLayer',
           data: {
             openid: openid,
             scene: scene,
@@ -622,9 +629,10 @@ Page({
 
       //显示排行榜
       wx.request({
-        url: 'https://axure.xinice.com/index.php/index/index/ranking',
+        url: config.request +'index.php/index/index/ranking',
         data: {
           openid: openid,
+          activity_id:id
         },
         method: 'GET',
         header: {
@@ -648,9 +656,12 @@ Page({
 
       //准备好二维码
       wx.request({
-        url: 'https://axure.xinice.com/index.php/index/index/QRcode',
+        url: config.request +'index.php/index/index/QRcode',
         data: {
           openid: openid,
+          merch_id: app.globalData.merch_id,
+          modular_id: app.globalData.modular_id,
+          activity_id: id
         },
         method: 'GET',
         header: {
@@ -671,7 +682,7 @@ Page({
 
     //顶部弹幕滚动
     wx.request({
-      url: 'https://axure.xinice.com/index.php/index/index/dmsjhq',
+      url: config.request +'index.php/index/index/dmsjhq',
       data: {
       },
       method: 'GET',
@@ -856,54 +867,36 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // //请求轮播图
-  // requestCarouselListData() {
-  //   var that = this;//注意this指向性问题
-  //   // var urlStr = that.data.host + "/xjj/chome_carousel_list.json"; //请求连接注意替换（我用本地服务器模拟）
-  //   console.log("请求轮播图：" + urlStr);
-  //   wx.request({
-  //     url: urlStr,
-  //     data: {//这里放请求参数，如果传入参数值不是String，会被转换成String 
-  //       // x: '',
-  //       // y: ''
-  //     },
-  //     header: {
-  //       'content-type': 'application/json' // 默认值
-  //     },
-  //     success(res) {
-  //       console.log("轮播图返回值：");
-  //       console.log(res.data.result);
-  //       var resultArr = res.data.result;
-  //       that.setData({
-  //         carouselList: resultArr
-  //       })
-  //     }
-  //   })
-  // },
-  // //活动信息
-  // baominginfo(e) {
-  //   var that = this;//注意this指向性问题
-  //   var urlStr = "https://axure.xinice.com/index.php/index/index/baominginfo"; //请求连接注意替换（我用本地服务器模拟）
-  //   // console.log("请求轮播图：" + urlStr);
-  //   wx.request({
-  //     url: urlStr,
-  //     data: {//这里放请求参数，如果传入参数值不是String，会被转换成String 
-  //       x: e,
-  //       // y: ''
-  //     },
-  //     header: {
-  //       'content-type': 'application/json' // 默认值
-  //     },
-  //     success(res) {
-  //       console.log("轮播图返回值：");
-  //       console.log(res.data.result);
-  //       var resultArr = res.data.result;
-  //       that.setData({
-  //         carouselList: resultArr
-  //       })
-  //     }
-  //   })
-  // }
+ 
+  //活动信息
+  activity_info(e) {
+    var that = this;//注意this指向性问题
+    var urlStr = config.request +"index.php/index/index/activity_info"; //请求连接注意替换（我用本地服务器模拟）
+    // console.log("请求轮播图：" + urlStr);
+    wx.request({
+      url: urlStr,
+      data: {//这里放请求参数，如果传入参数值不是String，会被转换成String 
+        id: e
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        // console.log(res)
+        var resultArr = res.data.img;
+        var content = res.data.content;
+        var content = content.replace(/src="\/uploads/g, 'src="'+config.request+'/uploads/');
+        var content = content.replace(/<img/g, '<img style="max-width:100%;height:auto;display:block;margin:10px 0;"');
+        // console.log(content)
+        that.setData({
+          carouselList: resultArr,
+          nodes: content,
+          aprice: res.data.aprice,
+          oprice: res.data.oprice
+        })
+      }
+    })
+  }
 
 
 })

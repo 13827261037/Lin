@@ -1,5 +1,5 @@
 
-
+import config from '../../utils/config';
 //获取应用实例
 const app = getApp()
 
@@ -127,8 +127,9 @@ Page({
 
         //跳活动
         activityBen: function (options) {
+          var id = options.currentTarget.dataset.id;
                 wx.navigateTo({
-                        url: '../activity/activity',
+                  url: '/pages/activity_coupon/activity_coupon?activity_id='+id,
                 })
         },
 
@@ -160,28 +161,79 @@ Page({
        
 
 
-        onLoad: function () {
+  onLoad: function (options) {
 
-                var self2 = this;
+              this.setData({
+                userInfo: app.globalData.userInfo 
+              })
+              var self2 = this;
+              if (options.share_id){
+                self2.upopen(options, openid)
+              }
+                // let openid = wx.getStorageSync("openid");
+                var openid = app.globalData.openid;
+                // if (options.scene) {
+                //   self2.upopen(options, openid)
+                // }
+                //重新赋值
+                wx.request({
 
-                let openid = wx.getStorageSync("openid");
+                  //请求服务器路径，获取openid
+                  url: config.request +'index.php/index/index/info',
+                  method: "GET",
+                  data: {
+                    openid: openid,
+                    merch_id:app.globalData.merch_id,
+                    modular_id: app.globalData.modular_id
+                  },
+                  success: function (data) {
+                    // console.log(data)
+                    // wx.setStorageSync("openid", data['data']['openid']);
+                    // wx.setStorageSync("session_key", data['data']['session_key']);
 
-                //首页显示的数据
-                let zyj = wx.getStorageSync("zyj");
-                let ztjrs = wx.getStorageSync("ztjrs");
-                let tjr = wx.getStorageSync("tjr");
-                let rank = wx.getStorageSync("rank");
-                let coupon = wx.getStorageSync("coupon");
-                let yongjin = wx.getStorageSync("yongjin");
+                    // // // 佣金
+                    // wx.setStorageSync("zyj", data['data']['zyj']);
+                    // // // 推荐人数
+                    wx.setStorageSync("ztjrs", data['data']['ztjrs']);
+                    // // //推荐人
+                    // wx.setStorageSync("tjr", data['data']['tjr']);
+                    // // //用户等级
+                    // wx.setStorageSync("rank", data['data']['rank']);
+                    // // //优惠卷数量
+                    wx.setStorageSync("coupon", data['data']['coupon']);
+                    // // //活动总收益
+                    // wx.setStorageSync("yongjin", data['data']['yongjin']);
 
-                this.setData({
-                        zyjdata: zyj,
-                        ztjrsddata: ztjrs,
-                        tjrdata: tjr,
-                        rankdata: rank,
-                        coupondata: coupon,
-                        yongjindata: yongjin,
+                    self2.setData({
+                      zyjdata: data['data']['zyj'],
+                      ztjrsddata: data['data']['ztjrs'],
+                      tjrdata: data['data']['tjr'],
+                      rankdata: data['data']['rank'],
+                      coupondata: data['data']['coupon'],
+                      yongjindata: data['data']['yongjin'],
+                      activity: data['data']['activity']
+                    })
+                  },
+                  fail: function (data) {
+                    console.log('code传输失败！')
+                  }
                 })
+                //首页显示的数据
+                // let zyj = wx.getStorageSync("zyj");
+                // let ztjrs = wx.getStorageSync("ztjrs");
+                // let tjr = wx.getStorageSync("tjr");
+                // let rank = wx.getStorageSync("rank");
+                // let coupon = wx.getStorageSync("coupon");
+                // let yongjin = wx.getStorageSync("yongjin");
+
+                // this.setData({
+                //         zyjdata: zyj,
+                //         ztjrsddata: ztjrs,
+                //         tjrdata: tjr,
+                //         rankdata: rank,
+                //         coupondata: coupon,
+                //         yongjindata: yongjin,
+                // })
 
 
                 // 不重复获取手机号码
@@ -201,7 +253,7 @@ Page({
 
                 //顶部弹幕滚动
                 wx.request({
-                        url: 'https://axure.xinice.com/index.php/index/index/dmsjhq',
+                        url: config.request +'index.php/index/index/dmsjhq',
                         data: {
                         },
                         method: 'GET',
@@ -300,7 +352,7 @@ Page({
                 let openid = wx.getStorageSync("openid");
                 //显示排行榜
                 wx.request({
-                        url: 'https://axure.xinice.com/index.php/index/index/ranking',
+                        url: config.request +'index.php/index/index/ranking',
                         data: {
                                 openid: openid,
                         },
@@ -320,11 +372,13 @@ Page({
                         }
                 })
 
-                //准备好二维码
+                //准备好二维码  2020 05 26 注释
                 wx.request({
-                        url: 'https://axure.xinice.com/index.php/index/index/QRcode',
+                        url: config.request +'index.php/index/index/QRcode',
                         data: {
                                 openid: openid,
+                                merch_id: app.globalData.merch_id,
+                                modular_id: app.globalData.modular_id
                         },
                         method: 'GET',
                         header: {
@@ -332,6 +386,7 @@ Page({
                         },
                         success: function (res) {
                                 // console.log('二维码已到')
+                                wx.clearStorage('imgUrls2');
                                 wx.setStorageSync("imgUrls2", res.data);
                                 self2.setData({
                                         imgUrls: res.data
@@ -354,12 +409,12 @@ Page({
                 // app.globalData.userInfo = e.detail.userInfo
                 if (e.detail.userInfo) {
 
-                        let openid = wx.getStorageSync("openid");
+                        // let openid = wx.getStorageSync("openid");
+                        var openid = app.globalData.openid;
 
                         //传到数据库，填充用户信息（名称+头像）
                         wx.request({
-
-                                url: 'https://axure.xinice.com/index.php/index/index/nameImg',
+                                url: config.request +'index.php/index/index/nameImg',
                                 data: {
                                         name: e.detail.userInfo.nickName,
                                         img: e.detail.userInfo.avatarUrl,
@@ -411,12 +466,13 @@ Page({
                                         //同意授权
                                         wx.request({
                                                 method: "GET",
-                                                url: 'https://axure.xinice.com/index.php/index/index/userMobile',
+                                                url: config.request +'index.php/index/index/userMobile',
                                                 data: {
                                                         openid: openid,
                                                         encrypdata: ency,
                                                         ivdata: iv,
                                                         sessionkey: sessionk,
+                                                        modular_id: app.globalData.modular_id
                                                 },
                                                 header: {
                                                         'content-type': 'application/json'
@@ -440,13 +496,54 @@ Page({
                                 // that.wxlogin(); 
                         }
                 })   
-        }
+        },
 
+
+        //分享
+    upopen: function (options,openid){
+      var options = options;
+      var openid = openid;
+    
+          if (options.scene) {
+            // let scene = decodeURIComponent(options.scene);
+            console.log(scene)
+            // console.log(openid)
+            wx.request({
+              url: config.request + 'index.php/index/index/upperLayer',
+              data: {
+                openid: openid,
+                share: options.share_id,
+              },
+              method: 'POST',
+              header: {
+                'content-type': 'application/json'
+              },
+              success: function (res) {
+              },
+              fail: function (res) {
+              }
+            })
+          } else {
+            console.log('没有share_id')
+          }
+        }
   
 
 
+,
+  //转发
+    onShareAppMessage: function (res) {
+      if (res.from === 'button') {
 
-
+      }
+      return {
+        title: '转发',
+        path: '/pages/index/index?share_id=' + app.globalData.openid,
+        success: function (res) {
+          console.log('成功', res)
+        }
+      }
+    }
 
 
 

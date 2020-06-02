@@ -1,4 +1,4 @@
-
+import config from '../../utils/config';
 
 //获取应用实例
 const app = getApp()
@@ -304,11 +304,13 @@ Page({
         //支付事件
         srrrw: function (options) {
                 var that = this;
+                var merch_id = app.globalData.merch_id;
+                var modular_id = app.globalData.modular_id;
                 var total_fee = 0.01;  //支付金额，0.01元假数据
                 let openid = wx.getStorageSync("openid");
                 let yhjzt = wx.getStorageSync("yhjzt");
                 console.log(yhjzt);
-                if(yhjzt=='2'){
+                if(yhjzt=='1'){
                         wx.showToast({
                                 title: '您已报名，请到对应页面查看',
                                 icon: 'none',
@@ -316,10 +318,12 @@ Page({
                         });
                 }else{
                         wx.request({
-                                url: 'https://axure.xinice.com/index.php/index/index/WXpay',
+                                url: config.request +'index.php/index/index/WXpay',
                                 data: {
                                         total_fee: total_fee,
-                                openid: openid
+                                openid: openid,
+                                  merch_id: merch_id,
+                                  modular_id: modular_id
                                 },
                                 header: {
                                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -427,7 +431,7 @@ Page({
                         //传到数据库，填充用户信息（名称+头像）
                         wx.request({
 
-                                url: 'https://axure.xinice.com/index.php/index/index/nameImg',
+                              url: config.request +'index.php/index/index/nameImg',
 
                                 data: {
                                         name: e.detail.userInfo.nickName,
@@ -482,12 +486,13 @@ Page({
                                         //同意授权
                                         wx.request({
                                                 method: "GET",
-                                                url: 'https://axure.xinice.com/index.php/index/index/userMobile',
+                                                url: config.request +'index.php/index/index/userMobile',
                                                 data: {
                                                         openid: openid,
                                                         encrypdata: ency,
                                                         ivdata: iv,
                                                         sessionkey: sessionk,
+                                                        modular_id :app.globalData.modular_id
                                                 },
                                                 header: {
                                                         'content-type': 'application/json'
@@ -518,7 +523,7 @@ Page({
         newestsss: function () {
                 var self2 = this;
                 wx.request({
-                        url: 'https://axure.xinice.com/index.php/index/index/newest',
+                        url: config.request+'index.php/index/index/newest',
                         data: {
                         },
                         method: 'GET',
@@ -581,7 +586,7 @@ Page({
                                 let scene = decodeURIComponent(options.scene);
 
                                 wx.request({
-                                        url: 'https://axure.xinice.com/index.php/index/index/upperLayer',
+                                        url: config.request+'index.php/index/index/upperLayer',
                                         data: {
                                                 openid: openid,
                                                 scene: scene,
@@ -603,7 +608,7 @@ Page({
 
                         //显示排行榜
                         wx.request({
-                                url: 'https://axure.xinice.com/index.php/index/index/ranking',
+                                url: config.request+'index.php/index/index/ranking',
                                 data: {
                                         openid: openid,
                                 },
@@ -629,9 +634,11 @@ Page({
 
                         //准备好二维码
                         wx.request({
-                                url: 'https://axure.xinice.com/index.php/index/index/QRcode',
+                          url: config.request+'index.php/index/index/QRcode',
                                 data: {
                                         openid: openid,
+                                        merch_id: app.globalData.merch_id,
+                                        modular_id: app.globalData.modular_id
                                 },
                                 method: 'GET',
                                 header: {
@@ -652,7 +659,7 @@ Page({
 
                 //顶部弹幕滚动
                 wx.request({
-                        url: 'https://axure.xinice.com/index.php/index/index/dmsjhq',
+                        url: config.request +'index.php/index/index/dmsjhq',
                         data: {
                         },
                         method: 'GET',

@@ -1,11 +1,13 @@
 <!--pages/activity_copy/activity_copy.wxml-->
+<!-- 活动弹出框 -->
+<canvas-share bindclose="close" userInfo="{{userInfo}}" visible="{{visible}}" />
 <view class="top_image">
     <view class='carousel'> 
     <swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="false" interval='2000' circular='true'>
       <block wx:for="{{carouselList}}" wx:key="key">
         <swiper-item bindtap='chomeCarouselClick' data-url='{{item.url}}'>
           <!-- <image class="carouselImg" src='{{host}}{{item.img}}' mode='aspectFill' ></image> -->
-          <image class="carouselImg" src='{{item}}' mode='aspectFill' ></image>
+          <image class="carouselImg" src='{{url}}{{item}}' mode='aspectFill' ></image>
         </swiper-item>
       </block>
     </swiper>
@@ -49,8 +51,8 @@
         <text class="address">{{title_address}}</text>
     </view>
     <view class="money">
-      <text class="money1">￥1000</text>
-      <text class="money2">￥1000</text>
+      <text class="money1">￥{{aprice}}</text>
+      <text class="money2">￥{{oprice}}</text>
     </view>
     <view class="introd_info">
       <block wx:for="{{introd_info}}" wx:key="key">
@@ -69,7 +71,7 @@
   <!-- 已报名 -->
   <!-- 半天没有写出换行，于是写了两个循环，大佬可以改一下 -->
   <view class="menu">
-      <view class="menu2_view" wx:for="{{msgList}}" wx:key="{{index}}" wx:if="{{index < 6}}">
+      <view class="menu2_view" wx:for="{{msgList}}" wx:key="index" wx:if="{{index < 6}}">
 
              <image src="{{item.wxhimg}}" mode="widthFix" class="menu3icon"></image>
 
@@ -77,7 +79,7 @@
      </view>
 </view>
   <view class="menu2">
-      <view class="menu2_view" wx:for="{{msgList}}" wx:key="{{index}}" wx:if="{{index >= 6}}">
+      <view class="menu2_view" wx:for="{{msgList}}" wx:key="index" wx:if="{{index >= 6}}">
 
              <image src="{{item.wxhimg}}" mode="widthFix" class="menu3icon"></image>
 
@@ -116,27 +118,27 @@
        <!-- <block wx:for="{{carouselList}}" wx:key="key">
         <image class="ph2" src="{{item}}"></image>
       </block> -->
-      <image class="ph2" src="{{phbdata[0].wxhimg}}"></image>
-      <image class="ph3" src="{{phbdata[1].wxhimg}}"></image>
+      <image class="ph2" src="{{phbdata[1].wxhimg}}"></image>
+      <image class="ph3" src="{{phbdata[0].wxhimg}}"></image>
       <image class="ph4" src="{{phbdata[2].wxhimg}}"></image>
   
       <image class="djjp djjp1" src="/pages/imgs/ac_A.png" style="margin-left: 48.5vw;"></image>
       <image class="djjp2 djjp" src="/pages/imgs/ac_B.png" style="margin-left: 24.5vw;"></image>
       <image class="djjp3 djjp" src="/pages/imgs/ac_C.png" style="margin-left: 72.5vw;"></image>
       <view class="phb_name_z">
-          <view class="phb_name phb_name1">{{phbdata[0].wxname}}</view>
-          <view class="phb_name phb_name2">{{phbdata[1].wxname}}</view>
-          <view class="phb_name phb_name3">{{phbdata[2].wxname}}</view>
+          <view class="phb_name phb_name1">{{phbdata[1].wxname ? phbdata[1].wxname : '*'}}</view>
+          <view class="phb_name phb_name2">{{phbdata[0].wxname ? phbdata[0].wxname : '*'}}</view>
+          <view class="phb_name phb_name3">{{phbdata[2].wxname ? phbdata[2].wxname : '*'}}</view>
       </view>
        <view class="phb_name_r">
-          <view class="phb_r phb_r1">{{phbdata[0].tppnb}}人</view>
-          <view class="phb_r phb_r2">{{phbdata[1].tppnb}}人</view>
-          <view class="phb_r phb_r3">{{phbdata[2].tppnb}}人</view>
+          <view class="phb_r phb_r1">{{phbdata[1].tppnb ? phbdata[1].tppnb : 0}}人</view>
+          <view class="phb_r phb_r2">{{phbdata[0].tppnb ? phbdata[0].tppnb : 0}}人</view>
+          <view class="phb_r phb_r3">{{phbdata[2].tppnb ? phbdata[2].tppnb : 0}}人</view>
       </view>
        <view class="phb_name_m">
-          <view class="phb_m phb_m1">{{phbdata[0].brokerage}}<text style="font-size:3.5vw"> 元</text></view>
-          <view class="phb_m phb_m2">{{phbdata[1].brokerage}}<text style="font-size:3.5vw"> 元</text></view>
-          <view class="phb_m phb_m3">{{phbdata[2].brokerage}}<text style="font-size:3.5vw"> 元</text></view>
+          <view class="phb_m phb_m1">{{phbdata[1].brokerage ? phbdata[1].brokerage :0}}<text style="font-size:3.5vw"> 元</text></view>
+          <view class="phb_m phb_m2">{{phbdata[0].brokerage ? phbdata[0].brokerage :0}}<text style="font-size:3.5vw"> 元</text></view>
+          <view class="phb_m phb_m3">{{phbdata[2].brokerage ? phbdata[2].brokerage :0}}<text style="font-size:3.5vw"> 元</text></view>
       </view>
          <view class="phb_more" bindtap="vvs2" data-list="{{vo2_tf}}">查看排行榜</view>
          <view class="phb_more_list" wx:if="{{vo2_tf}}">
@@ -147,7 +149,7 @@
                 <view class="vo">邀请人数</view>
                 <view class="vo">累计收益</view>
             </view>
-                  <block wx:for="{{phbdata}}" wx:key="{{index}}" >
+                  <block wx:for="{{phbdata}}" wx:key="index" >
                      <view class="phb_more_list_l">
                         <text class="phb_c1 phb_c" wx:if="{{index >= 3 }}">{{index + 1}}</text>
                         <view class="phb_c2 phb_c" wx:if="{{index >= 3 }}">
@@ -164,14 +166,14 @@
   </view>
   </view>
   <view class="jszc">
-    技术支持：小鹿
+    技术支持：超级微信营销
   </view>
 </view>
 
 
 <!-- 顶部弹幕滚动 -->
 <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
-                <block wx:for="{{msgList22}}">
+                <block wx:for="{{msgList22}}" wx:key="index">
                         <swiper-item>
                                 <image class="imgADD" src="{{item.wxhimg}}" ></image>
                                 <view class="ttA">恭喜{{item.wxname}}</view>
@@ -183,7 +185,9 @@
 
 
         <view class="tt1" style="position:fixed; bottom:0;">
-                <view class="xx2" bindtap="showModal">成为浩信百年代言人</view>
+                <view formType="submit" class="xx2" bindtap="show">成为浩信百年代言人</view>
+                <!-- <view class="xx2" bindtap="showModal">成为浩信百年代言人</view> -->
+                  <!-- <view formType="submit" class="xx2" bindtap="show" style="width: 65vw;">提 交</view> -->
                 <view class="xx3" bindtap="showModal2">报 名</view>
                 <button wx:if="{{!hasUserInfo}}" class="nnn" style="width: 90vw;" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
                 

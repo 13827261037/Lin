@@ -1,4 +1,6 @@
 
+//获取应用实例
+const app = getApp()
 
 Page({
 
@@ -113,6 +115,8 @@ Page({
                                 amount: amount,
                                 name: name ,
                                 account: account,
+                                merch_id: app.globalData.merch_id,
+                                modular_id: app.globalData.modular_id
                         },
                         header: {
                                 'Content-Type': 'application/x-www-form-urlencoded'
