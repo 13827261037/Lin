@@ -76,8 +76,8 @@ Page({
                 var name      = data.detail.value.inp_name
                 var account  = data.detail.value.inp_account
 
-                let openid = wx.getStorageSync("openid");
-
+                // let openid = wx.getStorageSync("openid");
+                var openid = app.globalData.openid;
                 let yue2 = wx.getStorageSync("yue");
                 
                 if (Number(amount) > 500 || Number(amount) < 10) {

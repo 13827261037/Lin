@@ -1,4 +1,6 @@
-
+import config from '../../utils/config';
+//获取应用实例
+const app = getApp()
 
 Page({
 
@@ -58,15 +60,22 @@ Page({
 
                 var self2 = this;
 
-                let openid = wx.getStorageSync("openid");
-
+                // var openid = wx.getStorageSync("openid");
+                var openid = app.globalData.openid;
+                var merch_id = app.globalData.merch_id;
+                var modular_id = app.globalData.modular_id;
+             
                 //发起网络请求
                 wx.request({
 
                         //请求服务器路径，获取openid
                         url: 'https://axure.xinice.com/index.php/index/index/balances',
                         method: "POST",
-                        data: { openid: openid,},
+                        data: {
+                                 openid: openid,
+                                 merch_id:merch_id,
+                                 modular_id:modular_id
+                                },
                         header: { 'Content-Type': 'application/x-www-form-urlencoded'},
                         success: function (data) {
 
