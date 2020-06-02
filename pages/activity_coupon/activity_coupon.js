@@ -358,6 +358,7 @@ Page({
 
         if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
           console.log("用户拒绝获取手机号码授权");
+          return false;
         } else {
           //同意授权
           wx.request({
