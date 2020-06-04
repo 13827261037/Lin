@@ -351,12 +351,15 @@ Page({
                         this.showModal4();
                 }
 
-                let openid = wx.getStorageSync("openid");
+                // let openid = wx.getStorageSync("openid");
+                var openid = app.globalData.openid;
                 //显示排行榜
                 wx.request({
                         url: config.request +'index.php/index/index/ranking',
                         data: {
                                 openid: openid,
+                                merch_id:app.globalData.merch_id,
+                                modular_id:app.globalData.modular_id
                         },
                         method: 'GET',
                         header: {
