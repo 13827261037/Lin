@@ -62,9 +62,11 @@ Page({
   onLoad: function (options) {
 
     //页显示数据
-    let ztjrs = wx.getStorageSync("ztjrs");
+    //不知道为啥获取不到
+    // let ztjrs = wx.getStorageSync("ztjrs");
+    var ztjrs = app.globalData.tjrs;
     this.setData({
-      ztjrsddata: ztjrs
+      ztjrsddata:  ztjrs
     })
 
     //上拉刷新更多

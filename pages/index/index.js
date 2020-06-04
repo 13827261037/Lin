@@ -196,7 +196,8 @@ Page({
                     // wx.setStorageSync("zyj", data['data']['zyj']);
                     // // // 推荐人数
                     wx.setStorageSync("ztjrs", data['data']['ztjrs']);
-
+                    
+                    app.globalData.tjrs = data['data']['ztjrs'] ? data['data']['ztjrs'] : 0;
                     // // //推荐人
                     // wx.setStorageSync("tjr", data['data']['tjr']);
                     // // //用户等级
